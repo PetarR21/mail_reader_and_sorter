@@ -16,7 +16,7 @@ def main():
   try:
     service = get_gmail_service()
 
-    results = service.users().messages().list(userId="me", labelIds=["INBOX"],maxResults=1).execute()
+    results = service.users().messages().list(userId="me", labelIds=["INBOX"],maxResults=2).execute()
    
     messages = results.get("messages", [])
     
@@ -25,20 +25,23 @@ def main():
       return
     
     print("Messages:")
+    i = 0
     for message in messages:
+      i+=1
       print(f'Message ID: {message["id"]}')
       msg_data = service.users().messages().get(userId="me", id=message["id"]).execute()
      
       try:
-        with open("data.json", 'w', encoding='utf-8') as json_file:
+        with open(f"data{i}.json", 'w', encoding='utf-8') as json_file:
           json.dump(msg_data, json_file, indent=4) 
         
       except IOError as e:
         print(f"Error writing to file: {e}")
-      break
+    
+  
       
       
-      email = {}
+      """ email = {}
       headers = msg_data['payload']['headers']
       
       for header in headers:
@@ -51,7 +54,16 @@ def main():
           
         if 'subject' in email and 'from' in email and 'date' in email:
           break
-      print(f"The email: {email}")
+     
+      
+      
+        
+      
+      message_content = decode_base64(msg_data['payload']['parts'][0]['parts'][0]['body']['data']) 
+      email["text_content"]=message_content
+      
+      
+      print(f"The email: {email}") """
   except HttpError as error:
     # TODO(developer) - Handle errors from gmail API.
     print(f"An error occurred: {error}")
