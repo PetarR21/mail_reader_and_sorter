@@ -1,0 +1,202 @@
+{
+  "id": "19bffda724dda6ef",
+  "threadId": "19bffda724dda6ef",
+  "labelIds": ["UNREAD", "IMPORTANT", "CATEGORY_PERSONAL", "INBOX"],
+  "snippet": "Test Text",
+  "payload": {
+    "partId": "",
+    "mimeType": "multipart/mixed",
+    "filename": "",
+    "headers": [
+      {
+        "name": "Delivered-To",
+        "value": "petar.r.rakocevic@gmail.com"
+      },
+      {
+        "name": "Received",
+        "value": "by 2002:a05:7300:5391:b0:2a4:7a48:ed3a with SMTP id g17csp2220674dye;        Tue, 27 Jan 2026 06:27:46 -0800 (PST)"
+      },
+      {
+        "name": "X-Received",
+        "value": "by 2002:a05:690e:4011:b0:644:4a95:c15 with SMTP id 956f58d0204a3-6498fc68925mr1212336d50.80.1769524064956;        Tue, 27 Jan 2026 06:27:44 -0800 (PST)"
+      },
+      {
+        "name": "ARC-Seal",
+        "value": "i=2; a=rsa-sha256; t=1769524064; cv=pass;        d=google.com; s=arc-20240605;        b=gHwr7pMSY2wdh39AWk7T+DJ3Nd/u/x7VjHfn+JHoEzscM34oSQ5fPNphsjfbSnSFQA         VmWYU8BXlchvrsy6uZ+7Dsw9+epzpIbF/pr5oBhUXZRnnMvXDv88f/g+WPPUhThOWqHj         0wMs81C4v+0hVul6uQoleVSk1xxM87VaVYRjrPpXdG7idOwV/QNZEg1Y+o/+aO8QWZme         5dg/6GcAykejBZufl0AUBFj+yT9gKHIM4uxByVwZRphvm5KhWMY20Y82E8ICItf0GU0T         boDMNQDoHJWi0iqYNJej1CY4Z/UIzt38JwGeDcfOwk1PYXt605/VO4O6pwK+HlKfKCJ5         iJOQ=="
+      },
+      {
+        "name": "ARC-Message-Signature",
+        "value": "i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;        h=to:subject:message-id:date:from:mime-version:dkim-signature;        bh=tECffPE/tBQXyk3j6CDULcTtESBk0J7Jm7LzxGjn18M=;        fh=bSPra/ZxKz3fK7if/S86fGNJ0cn+3sCLf31Jxqekpgc=;        b=F2wZQ5AMJinhvb93dpMS9OjDxzTFhOrn5e7BMywRB1gjLnyN5BjzLJbgrlYVNt2jO/         cdRCrmWEMB5gGgkD2nmSKelODLUinLjcyz51jT/gSWp6wXqT4/IvhweXNV+Y7AmTvtxD         ajI22p8UiPZgLaidqiScRXWOAbSk3YXZmHWgr5VBDZ52K5Zhsj1I6k3fG5WqVQOME7L1         FSfPar4HDjL0tueCA6/COuz8GB3CiZ5l1p/MRXYzOK22942+1eAlMOLLIxd4And5dcO/         K6+sNF++vsNnSrX0Z1CQYXm8J4PT+sPMwfwHWxWQHc8wWgQ9BfVh5la2FhxDGd6X8GpQ         LrbQ==;        dara=google.com"
+      },
+      {
+        "name": "ARC-Authentication-Results",
+        "value": "i=2; mx.google.com;       dkim=pass header.i=@gmail.com header.s=20230601 header.b=\"cMRDTZ7/\";       arc=pass (i=1);       spf=pass (google.com: domain of petaretf97@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=petaretf97@gmail.com;       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;       dara=pass header.i=@gmail.com"
+      },
+      {
+        "name": "Return-Path",
+        "value": "<petaretf97@gmail.com>"
+      },
+      {
+        "name": "Received",
+        "value": "from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])        by mx.google.com with SMTPS id 956f58d0204a3-6495cfe342bsor4052557d50.15.2026.01.27.06.27.44        for <petar.r.rakocevic@gmail.com>        (Google Transport Security);        Tue, 27 Jan 2026 06:27:44 -0800 (PST)"
+      },
+      {
+        "name": "Received-SPF",
+        "value": "pass (google.com: domain of petaretf97@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;"
+      },
+      {
+        "name": "Authentication-Results",
+        "value": "mx.google.com;       dkim=pass header.i=@gmail.com header.s=20230601 header.b=\"cMRDTZ7/\";       arc=pass (i=1);       spf=pass (google.com: domain of petaretf97@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=petaretf97@gmail.com;       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;       dara=pass header.i=@gmail.com"
+      },
+      {
+        "name": "ARC-Seal",
+        "value": "i=1; a=rsa-sha256; t=1769524064; cv=none;        d=google.com; s=arc-20240605;        b=bkZn4ieOImYc6ZAuUXUk6uATNBuuySeDgDSYwjqtXYssaSrTDJ5A5oYWLj9mFX2PGS         HkE/bkgjsE4BF8j/JAN3tliAR5ErdWnGq0bs3/O8xSXdIKB+s4UlmRHo++WEs5BJ4NGT         gNawgCOMC/1HEOPe0Y1rT4B0NqmnmnrG9xpeDSffhAjF8DNr7we7q1N//1AEI0jfOpum         xge+kWs8h994aDl/TZqsrjkWOAK4wuuQ23fyWeQFijs+wqIVq/iaF7t+H0fTIem9HTfs         rZtS1KnzFJ+9uYY6RvMvavVJB0SgTb5RbItKedGqTNlNVkt99ad2fzPNb2EvQJOmM8kL         1jqw=="
+      },
+      {
+        "name": "ARC-Message-Signature",
+        "value": "i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;        h=to:subject:message-id:date:from:mime-version:dkim-signature;        bh=tECffPE/tBQXyk3j6CDULcTtESBk0J7Jm7LzxGjn18M=;        fh=bSPra/ZxKz3fK7if/S86fGNJ0cn+3sCLf31Jxqekpgc=;        b=EtxZ3wQvNplEhiPPImN+OdzNZVdN1zxD2zjxYfLpyVPa9E/tLGlW4dieZHenNEDH+q         bfy8on1vYB+Y6Kkmwe4SVOUWCDbV+cwMb/A72pBnFCnQYmHkfZw3B6ZBRIsllpJ9VjEm         ykUPq+Y0s+cB0eUjSZ2cQtirKjxGmTNCyadOrynPt8ZPUqvQ+XU9KJTfC1Fm9gKC3K0q         F/e8YGCWTZcZms0w6y4t/I0OR1IOG5miFEmVgHcsu8VNnMZVfUbWPRj69gVak42AavUU         nRDF4+fEaYZtzBvdxEheNMKqg+Ed+yqkqyRRw85+D/CtOIOgP2ylN5zZjbAKm/MoRJAv         NH6Q==;        dara=google.com"
+      },
+      {
+        "name": "ARC-Authentication-Results",
+        "value": "i=1; mx.google.com; arc=none"
+      },
+      {
+        "name": "DKIM-Signature",
+        "value": "v=1; a=rsa-sha256; c=relaxed/relaxed;        d=gmail.com; s=20230601; t=1769524064; x=1770128864; dara=google.com;        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject         :date:message-id:reply-to;        bh=tECffPE/tBQXyk3j6CDULcTtESBk0J7Jm7LzxGjn18M=;        b=cMRDTZ7/RCjOOVPjBHev9912Ue244PDh3GviGSEeKL11bH0BvyvNvpioXvG/IsWJEp         mv517Yk0OTROUlWRZGxJAcIhqPC/DN2IBORSUCbKlj+ybeGIKf0UwdB9v9O65zPY9/kc         aQc2SKq7uwUuPfZE5ZPB4XjeXJwiQnqpjbiC3f1OE0cNVP9jncVVjSXpnhqKRcmd31mU         yLxS+OayHtlB3vXnBtBCCRz3Lf7MJmaPOYeEZ99SqnwMsAL2MxClHTqD6dnu/fc067AJ         hPE969xypgAaZkW7YW6puOF6fkRlxWIDL3J17b8v5By/RlhSjBqW/6Ag2DNct1VnS/nc         YaUA=="
+      },
+      {
+        "name": "X-Google-DKIM-Signature",
+        "value": "v=1; a=rsa-sha256; c=relaxed/relaxed;        d=1e100.net; s=20230601; t=1769524064; x=1770128864;        h=to:subject:message-id:date:from:mime-version:x-gm-gg         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;        bh=tECffPE/tBQXyk3j6CDULcTtESBk0J7Jm7LzxGjn18M=;        b=W8kJrOKFarIDhJIOUgYyQolO8X6beGJmEDcITAXj1ZZJw9YGlcjxqhBuodcLyH4a8Y         B2WokKsIxMrzQHyx//8Ffd9AHWY7fAJUQ+IAi8530Gf1yk0ZKLSZ1oonUpMjuZa1l1V6         peQMs+PLBmVzrY2vI0114Z0Zsqk4sZbVjQRv+VM0RHtKlrwcVMPFNS6vNmXhGkQ0ekjU         ryNJ0bwkBkhE+kkwlhsQiGvVbQ/Ayb4wJB9LRh17XZE9ob0Gj0C+fnKy8HbLmMu41orl         Rl3Y0C3TzkXuCDVJNo21NpmcC9FpC0rV3CqB6rBOVGAgDdBr88q//rV46LQHaydw1HHW         EhXg=="
+      },
+      {
+        "name": "X-Gm-Message-State",
+        "value": "AOJu0Yz0FD82X8Kdr8hs2GB3xMwF1iTSwOo8EEXmapcTmDYDSiDxdHeT n5mbjTO5+BIKZaYSGYdxCous+9yX6qa/RyW6nLOAFMRcAhmoczmz7T4GMGTb+whLcNshODIshDB l144iXWsKE7q9Lxa40gwLRE8263YrdjPuDw=="
+      },
+      {
+        "name": "X-Gm-Gg",
+        "value": "AZuq6aJ35vc+ofeSvT+9+Ta1u9hGvUwfdknLCjZHLPDWfS/gniONqyHVigmhoPEce1Y EXyxnhIpaWL2Wk4qA+cCMxYwqMdV/b9nTVGxty+h1CGpJvmMzpF/oLXb8aqRSwHdgv4W/Pv9dWY /9cQeY9dtmAbvZFdX49ThrqJnUPyha7suHbwi39j4llgmt5fvpRZSyVzfCdn4rCSrhJDfV6ca9c lrAspcIgDTjYVwrhRWvGLDVLW08SqKM0jeszYDnoZMa/atuEPuV4xuScWz+VX9G1Cx13Q=="
+      },
+      {
+        "name": "X-Received",
+        "value": "by 2002:a05:690e:4086:b0:645:5bfc:8be4 with SMTP id 956f58d0204a3-6498fc5b319mr1252285d50.66.1769524063670; Tue, 27 Jan 2026 06:27:43 -0800 (PST)"
+      },
+      {
+        "name": "MIME-Version",
+        "value": "1.0"
+      },
+      {
+        "name": "From",
+        "value": "Petar Rakocevic <petaretf97@gmail.com>"
+      },
+      {
+        "name": "Date",
+        "value": "Tue, 27 Jan 2026 15:27:30 +0100"
+      },
+      {
+        "name": "X-Gm-Features",
+        "value": "AZwV_QjaBuI44kRQySh0CzbJMBcVUXqmYyMxAwW-CSBfXHWAqIEAgUqiEPba0es"
+      },
+      {
+        "name": "Message-ID",
+        "value": "<CAFDPL2MEXPoh++JV346qq2j5W2ERMKYSwF669W0J=v0b4YW3bQ@mail.gmail.com>"
+      },
+      {
+        "name": "Subject",
+        "value": "Test Subject"
+      },
+      {
+        "name": "To",
+        "value": "petar.r.rakocevic@gmail.com"
+      },
+      {
+        "name": "Content-Type",
+        "value": "multipart/mixed; boundary=\"0000000000003cf47706495f6da9\""
+      }
+    ],
+    "body": {
+      "size": 0
+    },
+    "parts": [
+      {
+        "partId": "0",
+        "mimeType": "multipart/alternative",
+        "filename": "",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": "multipart/alternative; boundary=\"0000000000003cf47606495f6da7\""
+          }
+        ],
+        "body": {
+          "size": 0
+        },
+        "parts": [
+          {
+            "partId": "0.0",
+            "mimeType": "text/plain",
+            "filename": "",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "text/plain; charset=\"UTF-8\""
+              }
+            ],
+            "body": {
+              "size": 11,
+              "data": "VGVzdCBUZXh0DQo="
+            }
+          },
+          {
+            "partId": "0.1",
+            "mimeType": "text/html",
+            "filename": "",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "text/html; charset=\"UTF-8\""
+              }
+            ],
+            "body": {
+              "size": 33,
+              "data": "PGRpdiBkaXI9ImF1dG8iPlRlc3QgVGV4dDwvZGl2Pg0K"
+            }
+          }
+        ]
+      },
+      {
+        "partId": "1",
+        "mimeType": "application/pdf",
+        "filename": "Uputstvo-za-krajnje-korisnike-Token POSTA CG_76a04886-da27-4f31-8c65-3eba5ecb9ac3.pdf",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": "application/pdf; name=\"Uputstvo-za-krajnje-korisnike-Token POSTA CG_76a04886-da27-4f31-8c65-3eba5ecb9ac3.pdf\""
+          },
+          {
+            "name": "Content-Disposition",
+            "value": "attachment; filename=\"Uputstvo-za-krajnje-korisnike-Token POSTA CG_76a04886-da27-4f31-8c65-3eba5ecb9ac3.pdf\""
+          },
+          {
+            "name": "Content-Transfer-Encoding",
+            "value": "base64"
+          },
+          {
+            "name": "Content-ID",
+            "value": "<19bffda266eeaffb041>"
+          },
+          {
+            "name": "X-Attachment-Id",
+            "value": "19bffda266eeaffb041"
+          }
+        ],
+        "body": {
+          "attachmentId": "ANGjdJ_OS8URHZ0Azs1ucjp6ep59qNCWkfjg-SMjB31lh3gCR2xgNEe4eqP7Il3ySfZOdapKhB0ccwCPkHwE4wFA48LpAu4frxc8t3IXQ2ODV-JuVenggnrPQUyXXTJrf1-xVuxk9wMFlTTHFR4AUu_o2LBghjOM4Y4dbTctEU1uizxTjziXN4oHpsA-jaEE4R_rtEOmjbo2Hwzqacq_28pB1btZWLz11JRR90-fRTgP3iSh1FLwCjyGyIE3H3btEftWB-36b1XuAfvyZ9bBkiIQKjldnutoGzXi0Ro8f6DgaPxEivcz1x2fmnAbJrfIMly6FKECKgH5DsJYxifddhcxHXyEf2JYF1BqvtHLt8jHgxlwSfqjo-wxUT8y8ISw5EH-m48i68GgyXYvA7nuNOs6bYUVV6KY3udZ6pqEGg",
+          "size": 1644328
+        }
+      }
+    ]
+  },
+  "sizeEstimate": 2257555,
+  "historyId": "439022",
+  "internalDate": "1769524050000"
+}
