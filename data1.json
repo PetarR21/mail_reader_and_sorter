@@ -1,7 +1,8 @@
 {
-    "id": "19c0535a6f065acc",
-    "threadId": "19c0535a6f065acc",
+    "id": "19c08b62ec6bcb17",
+    "threadId": "19c08b62ec6bcb17",
     "labelIds": [
+        "UNREAD",
         "IMPORTANT",
         "CATEGORY_PERSONAL",
         "INBOX"
@@ -9,7 +10,7 @@
     "snippet": "Test Content",
     "payload": {
         "partId": "",
-        "mimeType": "multipart/alternative",
+        "mimeType": "multipart/mixed",
         "filename": "",
         "headers": [
             {
@@ -18,23 +19,23 @@
             },
             {
                 "name": "Received",
-                "value": "by 2002:a05:7300:7302:b0:2a4:7a48:ed3a with SMTP id n2csp439729dyd;        Wed, 28 Jan 2026 07:25:28 -0800 (PST)"
+                "value": "by 2002:a05:7301:1e96:b0:2a4:7a48:ed3a with SMTP id oo22csp474627dyb;        Wed, 28 Jan 2026 23:44:43 -0800 (PST)"
             },
             {
                 "name": "X-Received",
-                "value": "by 2002:a05:690e:130c:b0:649:36f4:afb7 with SMTP id 956f58d0204a3-6498fbf9b59mr4190595d50.29.1769613928259;        Wed, 28 Jan 2026 07:25:28 -0800 (PST)"
+                "value": "by 2002:a05:690c:83:b0:794:8055:7f85 with SMTP id 00721157ae682-7948064c5c4mr53903777b3.59.1769672683172;        Wed, 28 Jan 2026 23:44:43 -0800 (PST)"
             },
             {
                 "name": "ARC-Seal",
-                "value": "i=2; a=rsa-sha256; t=1769613928; cv=pass;        d=google.com; s=arc-20240605;        b=aBQqn0KYKWYnSrPQoNWubi4urRrYOLDVZxkd2cwVSYTCLEzAZydSBEKWvnHyHbVHfv         /6ojTug15TbB2+indQXgIfV7DBM/9ZPGuhsZO3l5RTDJW7vuihOq/59SGyH7D4LqS+SF         U3hH3usOoYjAC91o6ySYd5D36Ux9XuCG5MQB2okdlLEdr1cTqkNf+ApgY/dUfJT7WLFR         StBz8Li05CcLezH7JP2/KzsCaglGMWu/GwuPW4TUU0K4NEL4OMaarC7bTJrygWqBIBWT         mX0QA9MwFKHYdUB82mfN0CssSUFcTNFAFlTP/UdJKrS2VVk6WL3oBxrikrtAh7sOZeMp         3g7g=="
+                "value": "i=2; a=rsa-sha256; t=1769672683; cv=pass;        d=google.com; s=arc-20240605;        b=jgA511W8367y0w4eNBFu/uPIYQSKYWiUDdSFYXo1/At6QY7xXZ3FaM1upQ189Eszdo         rSqTnLYKvpfxEXT2aMz5sn0SJus4aDGLoM+JsuGz8eWmOZWBknwa19e1vqtJyN52rbmC         ST0AyYM35GNG0OKF8a1OgrDVxp8L3a8DDNDWraAnk2Q2WpX70IDY82aKKH+nzCoEtj5l         Nk7Q2qlluaNPNAaHihJo9WH7XsHDdQdqqaFa6fUbJYiTeSh8U+drnL4UK1lUHBwo+Vbs         UV3LnxCu0r0y879cGzcK3zW18YZ9aAkaiscwnDLjXSmHH31ZL+OVZtkSyZHl+H8oVeMN         CROA=="
             },
             {
                 "name": "ARC-Message-Signature",
-                "value": "i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;        h=to:subject:message-id:date:from:mime-version:dkim-signature;        bh=i/UN6PZSg0n87IbxXWUBkKNX5VR0iqjA/XWqVWJHQUw=;        fh=bSPra/ZxKz3fK7if/S86fGNJ0cn+3sCLf31Jxqekpgc=;        b=Y5hEmz5QaAk+5oWJHtlB4HB7YYczhDrjK01GB5RcAddMwCBxd5FJlmtDJOQa+9lg04         ENlODzONPgW/r3rDYoOlsrwheYBj4df55l2M9YMvn3Lx7uyicHz8psVrzprR6Lv1eyqz         tyt0advasqBbF135FWGzcppYNjnJ4fCJiv2On3kmzdAriYCL2f+umsu7f9b3nKbqHtWA         XiPj4qYVYzk8lGn0OJYVJSz20rYJXe4+RbtPKp/H8T4hCq1r0HqyrU3MDjSyuk4E9R8I         Hyvm23W7YnvMNlsn8nVN18NwHmE2/Ajctb/fLrUr7lveEt8Wm5nHDfQeexeP2CSF8QD4         HCHg==;        dara=google.com"
+                "value": "i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;        h=to:subject:message-id:date:from:mime-version:dkim-signature;        bh=QYyQM1XtOSsuRJP3E2O7TVyLCfKxc7soomJKT2Tm5ho=;        fh=bSPra/ZxKz3fK7if/S86fGNJ0cn+3sCLf31Jxqekpgc=;        b=VRXyydgIWMYehnZhX7zKdaPE8pHiAtgRNksWMyfcaBWO70Av5FvE+oOKwpuk/o7fsz         Abyl/n2SOvSR+tImi5FptRRIa7/rULSkIu25BOivfUbdQzH6T060UVWf9Hf3IQYbZ0Wa         6qQdpiKRLH4DAyEO2rfVBQDGpaJhQtn1W+H3ZSyKl3ZMZtI4XoEqZBjtWsnEyKnC8+Xx         oR1qEsPWo0XN3UXmEDO6eCt8bcM2EDrv/FTwjQ7dkCPmY6pLmkrzIhsV/S+P9WqsR3ZK         GU+v0Z9VbE1l7eoYcO6ZV3I6aPVm5qa+2Ktd6qFqMlKERYCK1xSXsdo7UTYskOl5m2Fv         wPBA==;        dara=google.com"
             },
             {
                 "name": "ARC-Authentication-Results",
-                "value": "i=2; mx.google.com;       dkim=pass header.i=@gmail.com header.s=20230601 header.b=mgrSDGru;       arc=pass (i=1);       spf=pass (google.com: domain of petaretf97@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=petaretf97@gmail.com;       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;       dara=pass header.i=@gmail.com"
+                "value": "i=2; mx.google.com;       dkim=pass header.i=@gmail.com header.s=20230601 header.b=TbmDuGv4;       arc=pass (i=1);       spf=pass (google.com: domain of petaretf97@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=petaretf97@gmail.com;       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;       dara=pass header.i=@gmail.com"
             },
             {
                 "name": "Return-Path",
@@ -42,7 +43,7 @@
             },
             {
                 "name": "Received",
-                "value": "from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])        by mx.google.com with SMTPS id 00721157ae682-794828f7768sor11419527b3.11.2026.01.28.07.25.28        for <petar.r.rakocevic@gmail.com>        (Google Transport Security);        Wed, 28 Jan 2026 07:25:28 -0800 (PST)"
+                "value": "from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])        by mx.google.com with SMTPS id 00721157ae682-794827ccd25sor26848567b3.4.2026.01.28.23.44.43        for <petar.r.rakocevic@gmail.com>        (Google Transport Security);        Wed, 28 Jan 2026 23:44:43 -0800 (PST)"
             },
             {
                 "name": "Received-SPF",
@@ -50,15 +51,15 @@
             },
             {
                 "name": "Authentication-Results",
-                "value": "mx.google.com;       dkim=pass header.i=@gmail.com header.s=20230601 header.b=mgrSDGru;       arc=pass (i=1);       spf=pass (google.com: domain of petaretf97@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=petaretf97@gmail.com;       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;       dara=pass header.i=@gmail.com"
+                "value": "mx.google.com;       dkim=pass header.i=@gmail.com header.s=20230601 header.b=TbmDuGv4;       arc=pass (i=1);       spf=pass (google.com: domain of petaretf97@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=petaretf97@gmail.com;       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;       dara=pass header.i=@gmail.com"
             },
             {
                 "name": "ARC-Seal",
-                "value": "i=1; a=rsa-sha256; t=1769613928; cv=none;        d=google.com; s=arc-20240605;        b=XLfq1u+3kDAudTE0L5DRbI/rxDfGc9NH0t68xILm+PeuplhQugfG4Nn+EVMEEsTwEY         2OEEsok1HH8CdK3Be8j7DvPu6RjV1pDEZ9xq4wmI3AchOHfy4ZU+PqrfYUchLRi60H8I         e36BFKM/DPKy9aefxRPcXcz51T+6jWo5nMWykkY/Muxfl2HlkNvZ35ARr1a3hH2da/KN         hf+kormwFOKueY23u5lKCQu2hxbDJerEGYdaZwqqkRnn/Ae9LTiIXFn+MTavzTab00OF         Mz9A/uNQg5mQFSTYiykGwKkGoFSvOgKg2DMseM4lqdX8RwoieyfgfiPjaG9cLVKRC8GU         TMKw=="
+                "value": "i=1; a=rsa-sha256; t=1769672682; cv=none;        d=google.com; s=arc-20240605;        b=lhjkqYKPsg0Tzo4dN6/90ezMpLrflNkqq4pTq7R0Fbj1XAgdCgIO4f+Nm9+hi7btlg         ugh4JG0GVpZRVdMvrPPNA+ztfOx3MXheb1x2UtBtingo9KpuGYO5rbNRDwxmO6Brtk+1         uvBTTNjY7e/uE2x519TqTemN98+h5bEo948pD/bhmR3BTfapuaar2o0uANGKBFJRs1kQ         gNez/gbDmX6RXz1I4wg9TBmrl7i3pfdNH71Ri2m1hogQTXIcD95snzU1mi3OM0jC/9iA         z99U9OgsWgP4VETInx6adeDcsfndq2iFKqlvofxQ8ULKC3L5FEuoK66rMebD9fMpSlDF         QDJQ=="
             },
             {
                 "name": "ARC-Message-Signature",
-                "value": "i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;        h=to:subject:message-id:date:from:mime-version:dkim-signature;        bh=i/UN6PZSg0n87IbxXWUBkKNX5VR0iqjA/XWqVWJHQUw=;        fh=bSPra/ZxKz3fK7if/S86fGNJ0cn+3sCLf31Jxqekpgc=;        b=QY2KGDMbcC/lglkAzw0h9Zq4JrCj/EUNHckysTcEGP+bH8LMfwjET5MhRjsZ1nbHjR         MqqXdhUaaqP9MJfRbopnELmbqMEpc0K0IWtps+G6/lmEGtAAYXwl/Oia0dXxV0edXmjH         TKg+e+BPl+5B9N440KUZw1Qv6/fMp091EgX5uAfmP2mokJyCKtp04bjYmjn+QZA4qO/A         k3KpEp8Q9FD0OGqFD4F1ipxCCaLAfF+ro9IAG8kwvE/TZqGBuW/tKXcDiEePjwi54x+2         qWyWdr38PLcRlv5on9w6zyZJji/LcWzyBGeLbESZ0yT0KkomswfRG9u7VWg41WpBNNoF         lFSw==;        dara=google.com"
+                "value": "i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;        h=to:subject:message-id:date:from:mime-version:dkim-signature;        bh=QYyQM1XtOSsuRJP3E2O7TVyLCfKxc7soomJKT2Tm5ho=;        fh=bSPra/ZxKz3fK7if/S86fGNJ0cn+3sCLf31Jxqekpgc=;        b=fTTz4GMzGPwuwsKxidHaViK57327UbQmEpwXPKGBa3b4bImsOBb8bW4KixZK4oC98T         Q0L3azvMct9734B13liTVSZYLt4bjVM6CM/0PKfPpVtHNaWToDJCIZgtRFHHkzfOZCwv         6mwKWRnoZzsfl+mICHO1XYYSnGLPiB4qA0b5rRU96KUzNkHEmVzQSGwkn5YVndlzwm+W         m0xU9eR8W13l5CqzAArjTfllty/Rm5n4H6rFCyhxV3WblWMWyiaB9JlMUmAj/rDh4ZLZ         BSTqga/80ou9LZK01wU36YyxjZkBBK3RJIAvNIudZ7QAmVErb72x0E5xlHRW9CuwFSaF         QXSQ==;        dara=google.com"
             },
             {
                 "name": "ARC-Authentication-Results",
@@ -66,23 +67,23 @@
             },
             {
                 "name": "DKIM-Signature",
-                "value": "v=1; a=rsa-sha256; c=relaxed/relaxed;        d=gmail.com; s=20230601; t=1769613928; x=1770218728; dara=google.com;        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject         :date:message-id:reply-to;        bh=i/UN6PZSg0n87IbxXWUBkKNX5VR0iqjA/XWqVWJHQUw=;        b=mgrSDGru3WsPmr0Bh85g0EVkeqRs5asJTP9LI5eJhQT2po264r1Tz7rBbeY/ThkEGw         FsDD5kfFJlgztDNtx0e0Lwo3FdIj1GQfSGAhYEbaJZCLDsGFvnXo7syjmragJspz0kqB         jzfmEgSCtG16sIjCatAe753T1bDFIfCrnSh5+WPcqxFQIolhw0S+sQDFmUnCCLvgmh4s         oa4XbZVQUdy55XbmfeSWDKanDhDca50l6Y97UcgAVo6NR5qWEfM8+C9VC6DdxYHe8CVR         eDa2i0XTH7x8xSyoPPey2RSYH/tQdopIQtdJ4My/UIi/Ei60GdifL1D1RajwNRiPX14p         B6GA=="
+                "value": "v=1; a=rsa-sha256; c=relaxed/relaxed;        d=gmail.com; s=20230601; t=1769672682; x=1770277482; dara=google.com;        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject         :date:message-id:reply-to;        bh=QYyQM1XtOSsuRJP3E2O7TVyLCfKxc7soomJKT2Tm5ho=;        b=TbmDuGv4J9I+3cOqvXbVML+1dbwXFj48V/1TgGeDGZlZ3gnpLw7HEWrxSmnSlg7DT6         bolcyiHUChMBdaT6B8ow0hgzYgluQivemalBLP/Sy3S0FVnzt6RODYQd1mkqjpGqnXE3         2LLVlyBKp3s8/VVezHgxO+xQaArMBPYeOG/v1VDbKD5znU3fDu9eqitAl/CtMacGltDt         SRocBtK+BZNhwnswO6qdehrTuwlrqWz5r+gklC8FV5LU6h5W0gLFRQVJoLQVZa12gF0A         VPtZI5R0ISvr4wDDgMMmT1rXqJQ9iumYZ7dTg3xj+GTKLa4DlVs7DouUxiXsy5KxfR1Y         jyhA=="
             },
             {
                 "name": "X-Google-DKIM-Signature",
-                "value": "v=1; a=rsa-sha256; c=relaxed/relaxed;        d=1e100.net; s=20230601; t=1769613928; x=1770218728;        h=to:subject:message-id:date:from:mime-version:x-gm-gg         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;        bh=i/UN6PZSg0n87IbxXWUBkKNX5VR0iqjA/XWqVWJHQUw=;        b=wu/4bomaVddpxfN++N1kbXr3b1/PHSwUm/1Vc6FcxYRq4fdqNBoHBpQfr/srrwrtS3         I3F8+BSBhZ5tO0Lp9lsx5ugKjlsfeZ/PjuDT82CPfJUHzda0JQBuOOyGJ6nynaDVy7BF         IQKYcqiqsjl1+SLVvEfQG/kMD9sFEl+nLy/5BM4DaWpmfdx4AQWY3Dslx+Cjc7vsecX6         Nt1YbK5lw5JoZfl4897zOhJFTSrdFDn0rDw1aZKhco4He2V0lO6NvXh0PMbOAcSGyOMK         BcCdv6w/xiorLRagscTWmFR3lAuxo9qylES8/ZqWgCte73G4TyJTENAuXALl4X561rdX         Ek6Q=="
+                "value": "v=1; a=rsa-sha256; c=relaxed/relaxed;        d=1e100.net; s=20230601; t=1769672682; x=1770277482;        h=to:subject:message-id:date:from:mime-version:x-gm-gg         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;        bh=QYyQM1XtOSsuRJP3E2O7TVyLCfKxc7soomJKT2Tm5ho=;        b=scFat3icjqnToTxoc1SCeukiUywnNZgMRzQRFhEIw+thl8rpTMBQWXZyTFmBrBIdmF         OHsa48fx2nIBino2OuidkFymQmI1ZF73RLuhsuSTOcTZQwxYH7Fl+VBdX6v5uneZcX3K         BFo+sa9OTyZy7iBx8mDz4kRFa1G7tphJCfuP8CAK3JBXYbLS8HKHD/9FtmyUXTW4VzhE         HvLJaW83bzETBmX3mh2qdzI8nV6334hzexyoq0ZKEXhUFN5467+o5icKuvfZAnVIbM2t         wIQuPOGmlrzgWzgq7GkCpdBJUwPl3BcaI69LixkolGRnRrU1T2LRWbYJR/NcAmI2auZx         P4hw=="
             },
             {
                 "name": "X-Gm-Message-State",
-                "value": "AOJu0YytXsvwhSoXZ8in5PkWAn2pWphLBFU4+Or+XuumbgTebTuDz1yI PxhxbMqMcOCIiBkK7A2xTQXIuI5p7FZ8Ymn49K022e1dt6QIiOW7WjjHNE2j69hrrV00tnKd4H2 jDcB6oGBLHbgCNRm9dM0ewSeEjKLInLm5sQ=="
+                "value": "AOJu0YwXr29kVdTfgW0aVoZtzwwsWqSya5IE9viVzWusREFsZh004ICg E304Z1mqUpgQygIllQi7TK6sK+fjloGTwQfYbPd6ZBMvYakxKKaOpCsFQYkQ7xMWPF8ychKCWQM 803BpVLiWvZKwn9HDc0BDMJR+ZPrDpaNARQ=="
             },
             {
                 "name": "X-Gm-Gg",
-                "value": "AZuq6aJhkC9WTpjF368dxLeRZYzwu5MqNzjjPm9tQTldm2d1gDJaM5JDDTe/ZTIWadE lQt4ONxuUMLFIGBkhtdNMGqCKvVMTcjF4RbRHIRExSAmPDI7mWhN/Qz2ugoT+YUtlex3q+3Tfy3 6TaUqbgwtCvIIU4dkqNbfIp4U3eGapGLZEqUh9RCCR/zpDNhY/3Gg4yHaz3GVfKVAOyZDIqdxSB a5LkcdQxA4ykVch1e5xZZ7EPwX6I13l3SZumx3SMDDAxGY3QnT8q5gJkmDsLbftPuVKCg=="
+                "value": "AZuq6aKJLjjLlGWaTsJgYUU3uelMmvpCSSTgQesGvdtUOrqjSHXczw0UDXGWvJL/4Oo HBVqW12o/eBwrMPpyv8sPEcyxIwu83AggIhD4my/ImdDhlXrSUA/C7WMO5788KGobYJjDPpNKsa nGuQLXgy56zweVzOpYeX1mDcmceo4XxkpJuvoSYvRB84MUtGUzol+wi5HtqTAwbi9jsFSr5EnIz kO8QOTO7mqeBLug2dkk/29ePFgRBLEnGT5KY8mUkJaT3/5jSrk5eJ1vPqYpD//tFOH9tQ=="
             },
             {
                 "name": "X-Received",
-                "value": "by 2002:a05:690e:11c8:b0:645:5b1f:4cbf with SMTP id 956f58d0204a3-6498fc6bde0mr4480471d50.82.1769613927779; Wed, 28 Jan 2026 07:25:27 -0800 (PST)"
+                "value": "by 2002:a05:690e:b81:b0:643:aeba:6c28 with SMTP id 956f58d0204a3-6498fc6d99bmr5393585d50.63.1769672682452; Wed, 28 Jan 2026 23:44:42 -0800 (PST)"
             },
             {
                 "name": "MIME-Version",
@@ -94,15 +95,15 @@
             },
             {
                 "name": "Date",
-                "value": "Wed, 28 Jan 2026 16:25:17 +0100"
+                "value": "Thu, 29 Jan 2026 08:44:31 +0100"
             },
             {
                 "name": "X-Gm-Features",
-                "value": "AZwV_QiRoF0b_F1Jjc_5NqJOoOAn6zm3mVAmMTbfQzPrGXRUiZRXCFR4rsV-5Lc"
+                "value": "AZwV_QiCI04zboQRQPwF-5BDJrmYMCW3ArcfAw8EDTHFgTrPDKuIQ8n1wxtmNI8"
             },
             {
                 "name": "Message-ID",
-                "value": "<CAFDPL2Okk2j7WdwteL8QXWpb3WsC+m55-1v0Az_D5yBX9g=FFQ@mail.gmail.com>"
+                "value": "<CAFDPL2Pc2wr6d3pRyU1_VR2AXzMnW7KqxVsze9gvt9Sk9Fv-8A@mail.gmail.com>"
             },
             {
                 "name": "Subject",
@@ -114,7 +115,7 @@
             },
             {
                 "name": "Content-Type",
-                "value": "multipart/alternative; boundary=\"0000000000008e0f0f06497459de\""
+                "value": "multipart/mixed; boundary=\"0000000000009b8c1e06498207e1\""
             }
         ],
         "body": {
@@ -123,37 +124,84 @@
         "parts": [
             {
                 "partId": "0",
-                "mimeType": "text/plain",
+                "mimeType": "multipart/alternative",
                 "filename": "",
                 "headers": [
                     {
                         "name": "Content-Type",
-                        "value": "text/plain; charset=\"UTF-8\""
+                        "value": "multipart/alternative; boundary=\"0000000000009b8c1d06498207df\""
                     }
                 ],
                 "body": {
-                    "size": 14,
-                    "data": "VGVzdCBDb250ZW50DQo="
-                }
+                    "size": 0
+                },
+                "parts": [
+                    {
+                        "partId": "0.0",
+                        "mimeType": "text/plain",
+                        "filename": "",
+                        "headers": [
+                            {
+                                "name": "Content-Type",
+                                "value": "text/plain; charset=\"UTF-8\""
+                            }
+                        ],
+                        "body": {
+                            "size": 14,
+                            "data": "VGVzdCBDb250ZW50DQo="
+                        }
+                    },
+                    {
+                        "partId": "0.1",
+                        "mimeType": "text/html",
+                        "filename": "",
+                        "headers": [
+                            {
+                                "name": "Content-Type",
+                                "value": "text/html; charset=\"UTF-8\""
+                            }
+                        ],
+                        "body": {
+                            "size": 36,
+                            "data": "PGRpdiBkaXI9ImF1dG8iPlRlc3QgQ29udGVudDwvZGl2Pg0K"
+                        }
+                    }
+                ]
             },
             {
                 "partId": "1",
-                "mimeType": "text/html",
-                "filename": "",
+                "mimeType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+                "filename": "SPECIFIKACIJA MATERIJALA- BALKAN JUNIOR 2026_df274b6f-2e36-45e6-8e61-61e009056658.docx",
                 "headers": [
                     {
                         "name": "Content-Type",
-                        "value": "text/html; charset=\"UTF-8\""
+                        "value": "application/vnd.openxmlformats-officedocument.wordprocessingml.document; name=\"SPECIFIKACIJA MATERIJALA- BALKAN JUNIOR 2026_df274b6f-2e36-45e6-8e61-61e009056658.docx\""
+                    },
+                    {
+                        "name": "Content-Disposition",
+                        "value": "attachment; filename=\"SPECIFIKACIJA MATERIJALA- BALKAN JUNIOR 2026_df274b6f-2e36-45e6-8e61-61e009056658.docx\""
+                    },
+                    {
+                        "name": "Content-Transfer-Encoding",
+                        "value": "base64"
+                    },
+                    {
+                        "name": "Content-ID",
+                        "value": "<19c08b5fbb819df5ada1>"
+                    },
+                    {
+                        "name": "X-Attachment-Id",
+                        "value": "19c08b5fbb819df5ada1"
                     }
                 ],
                 "body": {
-                    "size": 36,
-                    "data": "PGRpdiBkaXI9ImF1dG8iPlRlc3QgQ29udGVudDwvZGl2Pg0K"
+                    "attachmentId": "ANGjdJ-rpkCbgkTInKvedSgzLHCfFnhb1P312Qvm8-yKYf3IXLJlLj9PHbPHPil6_yyhKlIq11f28Lt3zZoh9th-q1iArKKUaszWNUmcIDbVoq6bwVNR7gGSanyCTSCVvopIvLOOaauUKTheDaaQlR4-p8F9Op39xWsLmX8NBwStJkZCZiKuLLnGYzTgo_zN_A-GWFk33m4VpfwPiJypW7hd-qy7e0z1Hw4js2bChYanXaYZI8WlkNcMdhyfMfkX9keo_BdfF9Pd8uMn2oIBFPrFyvHx0k7JtiBc3oeyRLb5zEDZddt5EGaI3hqG64MCRvnVUQ2Ep7YG6fMbWrMIfYpEZuNsLSuyoS8mscd4XoNk5v4BC2epaY1S73hA26OEGKsyKFq8sXaYIORx5Eoz",
+                    "size": 97170
                 }
             }
         ]
     },
-    "sizeEstimate": 6876,
-    "historyId": "439850",
-    "internalDate": "1769613917000"
+    "sizeEstimate": 140448,
+    "historyId": "440424",
+    "internalDate": "1769672671000"
 }
