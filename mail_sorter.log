@@ -1,0 +1,4 @@
+2026-02-03 19:14:35,940 - INFO - Starting mail processor...
+2026-02-03 19:14:35,940 - INFO - Processing mails... (2026-02-03 19:14:35)
+2026-02-03 19:14:37,051 - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-03 19:14:47,649 - INFO - Mail processing completed
