@@ -14,9 +14,9 @@ from PyQt5.QtWidgets import (
     QTableWidgetItem,
     QHeaderView,
     QAbstractItemView,
-    QSizePolicy,
 )
-from PyQt5.QtCore import QTimer
+from PyQt5.QtCore import Qt, QTimer
+from PyQt5.QtGui import QCursor
 import json
 
 
@@ -27,7 +27,7 @@ class MailSorterApp(QMainWindow):
 
         # Set window title and size
         self.setWindowTitle("Mail Sorter App")
-        self.setGeometry(0, 0, 800, 600)
+        self.setGeometry(0, 0, 900, 700)
 
         self.setup_styles()
 
@@ -66,29 +66,114 @@ class MailSorterApp(QMainWindow):
             """,
         }
 
-        self.text_input_style = """
-            padding: 8px 12px;
-            border: 1px solid #ced4da;
-            border-radius: 4px;
-            font-size: 14px;
-            background-color: white;
+        self.input_style = """
+            QLineEdit {
+                padding: 8px 12px;
+                border: 1px solid #ced4da;
+                border-radius: 4px;
+                font-size: 14px;
+                background-color: white;
+            }
+            QLineEdit:hover {
+                border: 1px solid #80bdff;
+                background-color: #f8f9fa;
+            }
+            QLineEdit:focus {
+                border: 1px solid #007bff;
+            }
         """
 
         self.title_style = """
-            font-size: 16px;
+            font-size: 18px;
             font-weight: bold;
-            color: #212529;
+            color:#707070;
             margin-bottom: 10px;
             margin-top: 10px;
+        """
+
+        self.add_button_style = """
+            QPushButton {
+                background-color: #007bff;
+                color: white;
+                padding: 8px 20px;
+                border: none;
+                border-radius: 4px;
+                font-weight: bold;
+                font-size: 14px;
+            }
+            QPushButton:hover {
+                background-color: #0056b3;
+            }
+            QPushButton:pressed {
+                background-color: #003d82;
+            }
+        """
+        self.delete_button_style = """
+            QPushButton {
+                background-color: #007bff;
+                color: white;
+                padding: 12px 20px;
+                border: none;
+                border-radius: 4px;
+                font-weight: bold;
+                font-size: 14px;
+            }
+            QPushButton:hover {
+                background-color: #0056b3;
+            }
+            QPushButton:pressed {
+                background-color: #003d82;
+            }
+        """
+
+        self.table_style = """
+            QTableWidget {
+                border: 1px solid #dee2e6;
+                background-color: white;
+            }
+            QTableWidget::item {
+                color: #303030;
+                
+            }
+            QHeaderView::section {
+                background-color: #A3A3A3;
+                color: white;
+                padding: 6px;
+                border: none;
+                font-weight: bold;
+                font-size: 16px;
+            }
+            
+        """
+
+        self.tab_style = """
+            QTabBar::tab {
+                color: #212529;
+                padding: 4px 12px;
+                border: none;
+                font-size: 14px;
+                min-width: 120px;
+                height: 20px;
+            }
+            QTabBar::tab:selected {
+                color: #007bff;                          
+                border-bottom: 3px solid #007bff;        
+                background-color: white;
+            }
+            QTabBar::tab:hover:!selected {
+                color: #0056b3;                          
+            }
         """
 
     def create_navigation_tabs(self):
         tab = QTabWidget()
 
-        tab.addTab(self.create_tab("Dashboard"), "dashboard")
-        tab.addTab(self.create_addresses_tab(), "addresses")
-        tab.addTab(self.create_tab("Prefernces"), "preferences")
-        tab.addTab(self.create_tab("Settings"), "settings")
+        tab.setStyleSheet(self.tab_style)
+
+        tab.addTab(self.create_tab("Dashboard"), "Dashboard")
+        tab.addTab(self.create_addresses_tab(), "Addresses")
+        tab.addTab(self.create_tab("Prefernces"), "Preferences")
+        tab.addTab(self.create_tab("Settings"), "Settings")
 
         return tab
 
@@ -100,17 +185,27 @@ class MailSorterApp(QMainWindow):
         self.read_addresses()
 
         input_selection_layout = QVBoxLayout()
-        title = QLabel("ADD NEW ADDRESS")
+        title = QLabel("Add New Address")
         title.setStyleSheet(self.title_style)
         input_selection_horizontal = QHBoxLayout()
         self.email_input = QLineEdit()
         self.email_input.setPlaceholderText("Enter email address")
-        self.email_input.setStyleSheet(self.text_input_style)
+        self.email_input.setStyleSheet(self.input_style)
+        self.email_input.setCursor(QCursor(Qt.IBeamCursor))
+        self.email_input.focusInEvent = (
+            lambda event: self.addresses_table.clearSelection()
+        )
         self.folder_input = QLineEdit()
         self.folder_input.setPlaceholderText("Enter folder name")
-        self.folder_input.setStyleSheet(self.text_input_style)
+        self.folder_input.setStyleSheet(self.input_style)
+        self.folder_input.setCursor(QCursor(Qt.IBeamCursor))
         self.add_button = QPushButton("Add")
         self.add_button.clicked.connect(self.on_add_button_clicked)
+        self.add_button.setStyleSheet(self.add_button_style)
+        self.add_button.setCursor(QCursor(Qt.PointingHandCursor))
+        self.email_input.focusInEvent = (
+            lambda event: self.addresses_table.clearSelection()
+        )
 
         input_selection_horizontal.addWidget(self.email_input)
         input_selection_horizontal.addWidget(self.folder_input)
@@ -118,22 +213,30 @@ class MailSorterApp(QMainWindow):
 
         input_selection_layout.addWidget(title)
         input_selection_layout.addLayout(input_selection_horizontal)
+        input_selection_layout.setContentsMargins(0, 10, 0, 10)
 
         # Message layout
         message_layout = QVBoxLayout()
         self.message_label = QLabel()
-        self.message_label.setVisible(False)
+        self.message_label.setMinimumHeight(45)
         message_layout.addWidget(self.message_label)
 
         # Table Layout
         tracked_layout = QVBoxLayout()
-        tracked_title = QLabel("TRACKED ADDRESSES")
+        tracked_title = QLabel("Tracked Addresses")
         tracked_title.setStyleSheet(self.title_style)
         tracked_layout.addWidget(tracked_title)
 
         self.addresses_table = QTableWidget()
+        self.addresses_table.setMinimumHeight(300)  # Compact
+        self.addresses_table.setMaximumHeight(400)
         self.addresses_table.setColumnCount(2)
         self.addresses_table.setHorizontalHeaderLabels(["Email Address", "Folder Name"])
+        header = self.addresses_table.horizontalHeader()
+        header.setStyleSheet("QHeaderView::section { border: 1px solid #D3D3D3; }")
+        self.addresses_table.verticalHeader().setVisible(False)
+        self.addresses_table.setStyleSheet(self.table_style)
+        self.addresses_table.setAlternatingRowColors(True)
 
         if self.tracked_addresses:
             for email, folder in self.tracked_addresses.items():
@@ -152,13 +255,17 @@ class MailSorterApp(QMainWindow):
         self.addresses_table.setSortingEnabled(True)
         self.addresses_table.setSelectionBehavior(QAbstractItemView.SelectRows)
         self.addresses_table.setSelectionMode(QAbstractItemView.SingleSelection)
+        self.addresses_table.setCursor(QCursor(Qt.PointingHandCursor))
 
         tracked_layout.addWidget(self.addresses_table)
+        tracked_layout.setContentsMargins(0, 5, 0, 5)
 
         # Bottom Layout
         bottom_layout = QVBoxLayout()
         self.delete_button = QPushButton("Delete Selected")
         self.delete_button.clicked.connect(self.on_delete_button_clicked)
+        self.delete_button.setStyleSheet(self.delete_button_style)
+        self.delete_button.setCursor(QCursor(Qt.PointingHandCursor))
         bottom_layout.addWidget(self.delete_button)
 
         layout.addLayout(input_selection_layout)
@@ -306,7 +413,7 @@ class MailSorterApp(QMainWindow):
         self.message_label.setStyleSheet(self.message_styles[message_type])
 
         self.message_label.setText(text)
-        self.message_label.setVisible(True)
+        # self.message_label.setVisible(True)
 
         self.message_timer = QTimer()
         self.message_timer.setSingleShot(True)
@@ -316,7 +423,7 @@ class MailSorterApp(QMainWindow):
     def clear_message(self):
         self.message_label.setText("")  # Empty the label
         self.message_label.setStyleSheet("")
-        self.message_label.setVisible(False)
+        # self.message_label.setVisible(False)
 
     def create_tab(self, label_text):
         widget = QWidget()
