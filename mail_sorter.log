@@ -1,121 +1,123 @@
-2026-02-03 19:14:35,940 - INFO - Starting mail processor...
-2026-02-03 19:14:35,940 - INFO - Processing mails... (2026-02-03 19:14:35)
-2026-02-03 19:14:37,051 - INFO - file_cache is only supported with oauth2client<4.0.0
-2026-02-03 19:14:47,649 - INFO - Mail processing completed
-2026-02-06 11:39:43,392 - INFO - Starting mail processor...
-2026-02-06 11:39:43,392 - INFO - Processing mails... (2026-02-06 11:39:43)
-2026-02-06 11:39:49,460 - INFO - "GET /?state=cBgp19DpSkzFKR81K5w4B5BP8SWKSR&code=4/0ASc3gC0pcoOu1TCXFt4QyZOyftqcnMzGt7bDOFND1H9vVpWoWiDRcybMqcGBfGahH9_3fw&scope=https://www.googleapis.com/auth/gmail.readonly HTTP/1.1" 200 65
-2026-02-06 11:39:49,906 - INFO - file_cache is only supported with oauth2client<4.0.0
-2026-02-06 11:39:52,806 - INFO - Mail processing completed
-2026-02-06 11:40:22,751 - INFO - Starting mail processor...
-2026-02-06 11:40:22,751 - INFO - Processing mails... (2026-02-06 11:40:22)
-2026-02-06 11:40:22,771 - INFO - file_cache is only supported with oauth2client<4.0.0
-2026-02-06 11:40:23,333 - INFO - Mail processing completed
-2026-02-06 11:50:09,587 - INFO - Starting mail processor...
-2026-02-06 11:50:09,587 - INFO - Processing mails... (2026-02-06 11:50:09)
-2026-02-06 11:50:09,587 - INFO - file_cache is only supported with oauth2client<4.0.0
-2026-02-06 11:50:10,156 - INFO - Mail processing completed
-2026-02-06 11:50:20,157 - INFO - Processing mails... (2026-02-06 11:50:20)
-2026-02-06 11:50:20,157 - INFO - file_cache is only supported with oauth2client<4.0.0
-2026-02-06 11:50:20,672 - INFO - Mail processing completed
-2026-02-06 11:50:30,676 - INFO - Processing mails... (2026-02-06 11:50:30)
-2026-02-06 11:50:30,676 - INFO - file_cache is only supported with oauth2client<4.0.0
-2026-02-06 11:50:31,174 - INFO - Mail processing completed
-2026-02-06 11:50:41,190 - INFO - Processing mails... (2026-02-06 11:50:41)
-2026-02-06 11:50:41,190 - INFO - file_cache is only supported with oauth2client<4.0.0
-2026-02-06 11:50:41,697 - INFO - Mail processing completed
-2026-02-06 11:50:51,699 - INFO - Processing mails... (2026-02-06 11:50:51)
-2026-02-06 11:50:51,699 - INFO - file_cache is only supported with oauth2client<4.0.0
-2026-02-06 11:50:52,258 - INFO - Mail processing completed
-2026-02-06 11:51:02,264 - INFO - Processing mails... (2026-02-06 11:51:02)
-2026-02-06 11:51:02,265 - INFO - file_cache is only supported with oauth2client<4.0.0
-2026-02-06 11:51:03,348 - INFO - Mail processing completed
-2026-02-06 11:51:13,349 - INFO - Processing mails... (2026-02-06 11:51:13)
-2026-02-06 11:51:13,349 - INFO - file_cache is only supported with oauth2client<4.0.0
-2026-02-06 11:51:13,912 - INFO - Mail processing completed
-2026-02-06 11:51:23,914 - INFO - Processing mails... (2026-02-06 11:51:23)
-2026-02-06 11:51:23,915 - INFO - file_cache is only supported with oauth2client<4.0.0
-2026-02-06 11:51:24,408 - INFO - Mail processing completed
-2026-02-06 11:51:34,419 - INFO - Processing mails... (2026-02-06 11:51:34)
-2026-02-06 11:51:34,419 - INFO - file_cache is only supported with oauth2client<4.0.0
-2026-02-06 11:51:34,927 - INFO - Mail processing completed
-2026-02-06 11:51:44,938 - INFO - Processing mails... (2026-02-06 11:51:44)
-2026-02-06 11:51:44,938 - INFO - file_cache is only supported with oauth2client<4.0.0
-2026-02-06 11:51:45,464 - INFO - Mail processing completed
-2026-02-06 11:51:55,466 - INFO - Processing mails... (2026-02-06 11:51:55)
-2026-02-06 11:51:55,468 - INFO - file_cache is only supported with oauth2client<4.0.0
-2026-02-06 11:51:55,962 - INFO - Mail processing completed
-2026-02-06 11:52:05,973 - INFO - Processing mails... (2026-02-06 11:52:05)
-2026-02-06 11:52:05,973 - INFO - file_cache is only supported with oauth2client<4.0.0
-2026-02-06 11:52:06,498 - INFO - Mail processing completed
-2026-02-06 11:52:16,499 - INFO - Processing mails... (2026-02-06 11:52:16)
-2026-02-06 11:52:16,501 - INFO - file_cache is only supported with oauth2client<4.0.0
-2026-02-06 11:52:16,998 - INFO - Mail processing completed
-2026-02-06 11:52:27,008 - INFO - Processing mails... (2026-02-06 11:52:27)
-2026-02-06 11:52:27,008 - INFO - file_cache is only supported with oauth2client<4.0.0
-2026-02-06 11:52:27,525 - INFO - Mail processing completed
-2026-02-06 11:52:37,526 - INFO - Processing mails... (2026-02-06 11:52:37)
-2026-02-06 11:52:37,526 - INFO - file_cache is only supported with oauth2client<4.0.0
-2026-02-06 11:52:38,035 - INFO - Mail processing completed
-2026-02-06 11:52:48,038 - INFO - Processing mails... (2026-02-06 11:52:48)
-2026-02-06 11:52:48,039 - INFO - file_cache is only supported with oauth2client<4.0.0
-2026-02-06 11:52:48,558 - INFO - Mail processing completed
-2026-02-06 11:52:58,560 - INFO - Processing mails... (2026-02-06 11:52:58)
-2026-02-06 11:52:58,560 - INFO - file_cache is only supported with oauth2client<4.0.0
-2026-02-06 11:52:59,054 - INFO - Mail processing completed
-2026-02-06 11:53:09,061 - INFO - Processing mails... (2026-02-06 11:53:09)
-2026-02-06 11:53:09,063 - INFO - file_cache is only supported with oauth2client<4.0.0
-2026-02-06 11:53:09,567 - INFO - Mail processing completed
-2026-02-06 11:53:19,568 - INFO - Processing mails... (2026-02-06 11:53:19)
-2026-02-06 11:53:19,570 - INFO - file_cache is only supported with oauth2client<4.0.0
-2026-02-06 11:53:20,064 - INFO - Mail processing completed
-2026-02-06 11:53:36,585 - INFO - Starting mail processor...
-2026-02-06 11:53:36,585 - INFO - Processing mails... (2026-02-06 11:53:36)
-2026-02-06 11:53:36,592 - INFO - file_cache is only supported with oauth2client<4.0.0
-2026-02-06 11:53:37,161 - INFO - Mail processing completed
-2026-02-06 11:53:47,162 - INFO - Processing mails... (2026-02-06 11:53:47)
-2026-02-06 11:53:47,162 - INFO - file_cache is only supported with oauth2client<4.0.0
-2026-02-06 11:53:47,670 - INFO - Mail processing completed
-2026-02-06 11:53:57,682 - INFO - Processing mails... (2026-02-06 11:53:57)
-2026-02-06 11:53:57,682 - INFO - file_cache is only supported with oauth2client<4.0.0
-2026-02-06 11:53:58,194 - INFO - Mail processing completed
-2026-02-06 11:54:08,198 - INFO - Processing mails... (2026-02-06 11:54:08)
-2026-02-06 11:54:08,198 - INFO - file_cache is only supported with oauth2client<4.0.0
-2026-02-06 11:54:08,720 - INFO - Mail processing completed
-2026-02-06 11:54:18,721 - INFO - Processing mails... (2026-02-06 11:54:18)
-2026-02-06 11:54:18,723 - INFO - file_cache is only supported with oauth2client<4.0.0
-2026-02-06 11:54:19,252 - INFO - Mail processing completed
-2026-02-06 11:54:29,254 - INFO - Processing mails... (2026-02-06 11:54:29)
-2026-02-06 11:54:29,254 - INFO - file_cache is only supported with oauth2client<4.0.0
-2026-02-06 11:54:29,778 - INFO - Mail processing completed
-2026-02-06 11:54:39,780 - INFO - Processing mails... (2026-02-06 11:54:39)
-2026-02-06 11:54:39,780 - INFO - file_cache is only supported with oauth2client<4.0.0
-2026-02-06 11:54:40,305 - INFO - Mail processing completed
-2026-02-06 11:54:50,321 - INFO - Processing mails... (2026-02-06 11:54:50)
-2026-02-06 11:54:50,321 - INFO - file_cache is only supported with oauth2client<4.0.0
-2026-02-06 11:54:50,824 - INFO - Mail processing completed
-2026-02-06 11:55:00,831 - INFO - Processing mails... (2026-02-06 11:55:00)
-2026-02-06 11:55:00,833 - INFO - file_cache is only supported with oauth2client<4.0.0
-2026-02-06 11:55:01,329 - INFO - Mail processing completed
-2026-02-06 11:55:11,344 - INFO - Processing mails... (2026-02-06 11:55:11)
-2026-02-06 11:55:11,346 - INFO - file_cache is only supported with oauth2client<4.0.0
-2026-02-06 11:55:11,840 - INFO - Mail processing completed
-2026-02-06 11:59:58,936 - INFO - Starting mail processor...
-2026-02-06 11:59:58,936 - INFO - Processing mails... (2026-02-06 11:59:58)
-2026-02-06 11:59:58,941 - INFO - file_cache is only supported with oauth2client<4.0.0
-2026-02-06 11:59:59,524 - INFO - Mail processing completed
-2026-02-06 12:00:09,525 - INFO - Processing mails... (2026-02-06 12:00:09)
-2026-02-06 12:00:09,528 - INFO - file_cache is only supported with oauth2client<4.0.0
-2026-02-06 12:00:10,603 - INFO - Mail processing completed
-2026-02-06 12:00:20,604 - INFO - Processing mails... (2026-02-06 12:00:20)
-2026-02-06 12:00:20,606 - INFO - file_cache is only supported with oauth2client<4.0.0
-2026-02-06 12:00:21,147 - INFO - Mail processing completed
-2026-02-06 12:00:31,147 - INFO - Processing mails... (2026-02-06 12:00:31)
-2026-02-06 12:00:31,148 - INFO - file_cache is only supported with oauth2client<4.0.0
-2026-02-06 12:00:31,682 - INFO - Mail processing completed
-2026-02-06 12:00:41,683 - INFO - Processing mails... (2026-02-06 12:00:41)
-2026-02-06 12:00:41,684 - INFO - file_cache is only supported with oauth2client<4.0.0
-2026-02-06 12:00:42,229 - INFO - Mail processing completed
-2026-02-06 12:00:52,230 - INFO - Processing mails... (2026-02-06 12:00:52)
-2026-02-06 12:00:52,232 - INFO - file_cache is only supported with oauth2client<4.0.0
-2026-02-06 12:00:52,775 - INFO - Mail processing completed
+2026-02-06 18:40:00,395 - INFO - Starting mail processor...
+2026-02-06 18:40:00,395 - INFO - Processing mails... (2026-02-06 18:40:00)
+2026-02-06 18:40:00,404 - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-06 18:40:01,786 - INFO - Error processing mails: 'data'
+2026-02-06 18:40:11,787 - INFO - Processing mails... (2026-02-06 18:40:11)
+2026-02-06 18:40:11,791 - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-06 18:40:14,560 - INFO - Error processing mails: 'data'
+2026-02-06 18:40:24,560 - INFO - Processing mails... (2026-02-06 18:40:24)
+2026-02-06 18:40:24,565 - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-06 18:40:27,363 - INFO - Error processing mails: 'data'
+2026-02-06 18:40:30,768 - INFO - Starting mail processor...
+2026-02-06 18:40:30,768 - INFO - Processing mails... (2026-02-06 18:40:30)
+2026-02-06 18:40:30,778 - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-06 18:40:32,199 - INFO - Error processing mails: 'data'
+2026-02-06 18:40:42,200 - INFO - Processing mails... (2026-02-06 18:40:42)
+2026-02-06 18:40:42,205 - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-06 18:40:43,549 - INFO - Error processing mails: 'data'
+2026-02-06 18:40:53,550 - INFO - Processing mails... (2026-02-06 18:40:53)
+2026-02-06 18:40:53,553 - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-06 18:40:55,490 - INFO - Error processing mails: 'data'
+2026-02-06 18:41:05,491 - INFO - Processing mails... (2026-02-06 18:41:05)
+2026-02-06 18:41:05,494 - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-06 18:41:06,997 - INFO - Error processing mails: 'data'
+2026-02-06 18:41:16,998 - INFO - Processing mails... (2026-02-06 18:41:16)
+2026-02-06 18:41:17,003 - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-06 18:41:18,548 - INFO - Error processing mails: 'data'
+2026-02-06 18:41:28,549 - INFO - Processing mails... (2026-02-06 18:41:28)
+2026-02-06 18:41:28,554 - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-06 18:41:30,670 - INFO - Error processing mails: 'data'
+2026-02-06 18:41:40,671 - INFO - Processing mails... (2026-02-06 18:41:40)
+2026-02-06 18:41:40,675 - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-06 18:41:43,134 - INFO - Error processing mails: 'data'
+2026-02-06 18:41:53,134 - INFO - Processing mails... (2026-02-06 18:41:53)
+2026-02-06 18:41:53,139 - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-06 18:41:54,661 - INFO - Error processing mails: 'data'
+2026-02-06 18:42:04,661 - INFO - Processing mails... (2026-02-06 18:42:04)
+2026-02-06 18:42:04,665 - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-06 18:42:06,002 - INFO - Error processing mails: 'data'
+2026-02-06 18:42:16,003 - INFO - Processing mails... (2026-02-06 18:42:16)
+2026-02-06 18:42:16,008 - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-06 18:42:17,436 - INFO - Error processing mails: 'data'
+2026-02-06 18:42:27,437 - INFO - Processing mails... (2026-02-06 18:42:27)
+2026-02-06 18:42:27,440 - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-06 18:42:28,951 - INFO - Error processing mails: 'data'
+2026-02-06 18:42:38,952 - INFO - Processing mails... (2026-02-06 18:42:38)
+2026-02-06 18:42:38,955 - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-06 18:42:40,419 - INFO - Error processing mails: 'data'
+2026-02-06 18:42:50,419 - INFO - Processing mails... (2026-02-06 18:42:50)
+2026-02-06 18:42:50,423 - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-06 18:42:53,070 - INFO - Error processing mails: 'data'
+2026-02-06 18:43:03,070 - INFO - Processing mails... (2026-02-06 18:43:03)
+2026-02-06 18:43:03,074 - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-06 18:43:05,948 - INFO - Error processing mails: 'data'
+2026-02-06 18:43:15,949 - INFO - Processing mails... (2026-02-06 18:43:15)
+2026-02-06 18:43:15,952 - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-06 18:43:17,420 - INFO - Error processing mails: 'data'
+2026-02-06 18:43:27,420 - INFO - Processing mails... (2026-02-06 18:43:27)
+2026-02-06 18:43:27,424 - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-06 18:43:28,976 - INFO - Error processing mails: 'data'
+2026-02-06 18:43:38,976 - INFO - Processing mails... (2026-02-06 18:43:38)
+2026-02-06 18:43:38,980 - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-06 18:43:40,350 - INFO - Error processing mails: 'data'
+2026-02-06 18:43:50,350 - INFO - Processing mails... (2026-02-06 18:43:50)
+2026-02-06 18:43:50,354 - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-06 18:43:51,927 - INFO - Error processing mails: 'data'
+2026-02-06 18:44:01,927 - INFO - Processing mails... (2026-02-06 18:44:01)
+2026-02-06 18:44:01,931 - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-06 18:44:03,296 - INFO - Error processing mails: 'data'
+2026-02-06 18:44:13,297 - INFO - Processing mails... (2026-02-06 18:44:13)
+2026-02-06 18:44:13,300 - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-06 18:44:14,736 - INFO - Error processing mails: 'data'
+2026-02-06 18:44:24,737 - INFO - Processing mails... (2026-02-06 18:44:24)
+2026-02-06 18:44:24,741 - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-06 18:44:26,431 - INFO - Error processing mails: 'data'
+2026-02-06 18:44:36,432 - INFO - Processing mails... (2026-02-06 18:44:36)
+2026-02-06 18:44:36,435 - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-06 18:44:38,275 - INFO - Error processing mails: 'data'
+2026-02-06 18:44:48,276 - INFO - Processing mails... (2026-02-06 18:44:48)
+2026-02-06 18:44:48,280 - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-06 18:44:49,605 - INFO - Error processing mails: 'data'
+2026-02-06 18:44:59,606 - INFO - Processing mails... (2026-02-06 18:44:59)
+2026-02-06 18:44:59,616 - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-06 18:45:01,138 - INFO - Error processing mails: 'data'
+2026-02-06 18:45:11,887 - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-06 18:46:32,930 - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-06 18:46:44,966 - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-06 18:46:56,352 - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-06 18:47:07,819 - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-06 18:47:19,148 - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-06 18:47:24,028 - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-06 18:47:35,384 - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-06 18:47:46,656 - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-06 18:47:54,501 - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-06 18:48:05,881 - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-06 18:48:17,184 - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-06 18:48:34,421 - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-06 18:48:46,522 - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-06 18:48:58,341 - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-06 18:49:09,834 - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-06 18:49:21,283 - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-06 18:49:32,663 - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-06 18:49:41,733 - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-06 18:50:14,550 - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-06 18:51:18,547 - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-06 18:52:46,578 - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-06 18:53:07,859 - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-06 18:54:41,223 - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-06 18:57:15,569 - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-06 18:58:41,929 - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-06 18:58:54,135 - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-06 18:59:05,178 - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-06 18:59:16,233 - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-06 18:59:27,248 - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-06 19:02:08,380 - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-06 19:02:19,676 - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-06 19:02:30,702 - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-06 19:02:43,065 - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-06 19:02:54,082 - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-06 19:03:05,110 - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-06 19:03:16,193 - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-06 19:03:27,242 - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-06 19:03:38,338 - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-06 19:03:49,402 - INFO - file_cache is only supported with oauth2client<4.0.0

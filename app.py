@@ -1,6 +1,7 @@
 from sort_emails import process_mails
 import time
 import logging
+import traceback
 
 logging.basicConfig(
     filename="mail_sorter.log",
@@ -12,16 +13,17 @@ logger = logging.getLogger(__name__)
 
 def run_mail_processor():
     """Run the mail processor continuously every 30 seconds"""
-    logger.info("Starting mail processor...")
+    print("Starting mail processor...")
 
     while True:
         try:
-            logger.info(
-                f"Processing mails... ({time.strftime('%Y-%m-%d %H:%M:%S')})")
+            print(f"Processing mails... ({time.strftime('%Y-%m-%d %H:%M:%S')})")
             process_mails()
-            logger.info("Mail processing completed")
+            print("Mail processing completed")
         except Exception as e:
-            logger.info(f"Error processing mails: {e}")
+            print(f"Error processing mails: {e}")
+            print(traceback.format_exc())
+            return
 
         # Wait 30 seconds before the next execution
         time.sleep(10)

@@ -1,0 +1,31 @@
+{
+    "partId": "1",
+    "mimeType": "text/plain",
+    "filename": "Test1.txt",
+    "headers": [
+        {
+            "name": "Content-Type",
+            "value": "text/plain; charset=\"US-ASCII\"; name=\"Test1.txt\""
+        },
+        {
+            "name": "Content-Disposition",
+            "value": "attachment; filename=\"Test1.txt\""
+        },
+        {
+            "name": "Content-Transfer-Encoding",
+            "value": "base64"
+        },
+        {
+            "name": "Content-ID",
+            "value": "<f_mlb392ma3>"
+        },
+        {
+            "name": "X-Attachment-Id",
+            "value": "f_mlb392ma3"
+        }
+    ],
+    "body": {
+        "attachmentId": "ANGjdJ-WZUWwwrTbELmBNYU22xPjIsg1PVjOXImwdP-BP0ytt-YDxP5fIQ3N3P5jzRMXFWVf3ctmj78bpcTH3mkAAJdmiwX_rNsApQTth5Gok2QHmfRhaiSheoWRtkb9J6Bkmeo1GahciOq0yy-lJepKvNrl_PI7JeF_HO9mnusoTv7afxDrDhL0fHTC4i_QbvaHiUbFSTy6tS1R5K1BSqlCvM9AhuiDEul9q6al7wvu8Cdh9QEpF97o1qlnT-XsM7Z1aGYWJIEgt85s6Pbje0UH0s33RJjaEMdbTixIhsd7DLeDUFx2F13VCmaMxIq4fsFuNvQTR-QS9SF7bC_RmCHPPTqb96rtsCtNy2EotzW9fwWBBbiRDjKcKIe3Zuewt3V1IhMb8esfXFwjQhSR",
+        "size": 3
+    }
+}

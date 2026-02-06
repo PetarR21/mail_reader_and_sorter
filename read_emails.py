@@ -41,7 +41,6 @@ def read_emails():
     emails = []
     try:
         service = get_gmail_service()
-
         history_id = load_history_id()
 
         if not history_id:
@@ -67,8 +66,7 @@ def read_emails():
             i += 1
 
             msg_data = (
-                service.users().messages().get(
-                    userId="me", id=message["id"]).execute()
+                service.users().messages().get(userId="me", id=message["id"]).execute()
             )
 
             email = {}
@@ -86,12 +84,14 @@ def read_emails():
                     break
 
             message_content = ""
-            attachment = {}
+            attachments = []
+
             if "parts" in msg_data["payload"]:
                 for part in msg_data["payload"]["parts"]:
                     if part["mimeType"] == "text/plain":
-                        message_content = decode_base64url(
-                            part["body"]["data"])
+                        with open("test.json", "w") as f:
+                            json.dump(part, f, indent=4)
+                        message_content = decode_base64url(part["body"]["data"])
                     if part["mimeType"] == "multipart/alternative":
                         another_parts = part["parts"]
                         for another_part in another_parts:
@@ -101,9 +101,9 @@ def read_emails():
                                 )
                                 break
                     if re.match(r"^application/.*", part["mimeType"]):
-                        attachment["filename"] = part["filename"]
-                        attachment["data"] = (
-                            service.users()
+                        attachment = {
+                            "filename": part["filename"],
+                            "data": service.users()
                             .messages()
                             .attachments()
                             .get(
@@ -111,12 +111,12 @@ def read_emails():
                                 messageId=message["id"],
                                 id=part["body"]["attachmentId"],
                             )
-                            .execute()
-                        )
+                            .execute(),
+                        }
+                        attachments.append(attachment)
 
             email["text_content"] = message_content
-            email["attachment"] = attachment
-
+            email["attachments"] = attachments
             emails.append(email)
 
     except HttpError as error:
