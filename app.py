@@ -16,14 +16,15 @@ def run_mail_processor():
 
     while True:
         try:
-            logger.info(f"Processing mails... ({time.strftime('%Y-%m-%d %H:%M:%S')})")
+            logger.info(
+                f"Processing mails... ({time.strftime('%Y-%m-%d %H:%M:%S')})")
             process_mails()
             logger.info("Mail processing completed")
         except Exception as e:
             logger.info(f"Error processing mails: {e}")
 
         # Wait 30 seconds before the next execution
-        time.sleep(30)
+        time.sleep(10)
 
 
 if __name__ == "__main__":

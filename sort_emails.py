@@ -3,7 +3,8 @@ import os
 import base64
 import json
 
-desktop_path = os.path.join(os.path.join(os.environ["USERPROFILE"]), "Desktop")
+desktop_path = os.path.join(os.path.join(
+    os.environ["USERPROFILE"]), "OneDrive", "Desktop")
 
 
 def extract_email(from_string):
@@ -49,7 +50,8 @@ def process_mails():
         if email["attachment"]:
             email_address = extract_email(email["from"])
             if email_address in addresses_to_track:
-                user_path = os.path.join(mails_path, addresses_to_track[email_address])
+                user_path = os.path.join(
+                    mails_path, addresses_to_track[email_address])
 
                 if not os.path.exists(user_path):
                     os.makedirs(user_path)

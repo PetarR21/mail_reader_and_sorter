@@ -47,7 +47,6 @@ def read_emails():
         if not history_id:
             profile = service.users().getProfile(userId="me").execute()
             save_history_id(profile["historyId"])
-            print("History baseline saved. Run again.")
             return None
 
         history = (
@@ -68,7 +67,8 @@ def read_emails():
             i += 1
 
             msg_data = (
-                service.users().messages().get(userId="me", id=message["id"]).execute()
+                service.users().messages().get(
+                    userId="me", id=message["id"]).execute()
             )
 
             email = {}
@@ -90,7 +90,8 @@ def read_emails():
             if "parts" in msg_data["payload"]:
                 for part in msg_data["payload"]["parts"]:
                     if part["mimeType"] == "text/plain":
-                        message_content = decode_base64url(part["body"]["data"])
+                        message_content = decode_base64url(
+                            part["body"]["data"])
                     if part["mimeType"] == "multipart/alternative":
                         another_parts = part["parts"]
                         for another_part in another_parts:
