@@ -18,6 +18,7 @@ from PyQt5.QtWidgets import (
 from PyQt5.QtCore import Qt, QTimer
 from PyQt5.QtGui import QCursor
 import json
+import os
 
 
 class MailSorterApp(QMainWindow):
@@ -172,10 +173,24 @@ class MailSorterApp(QMainWindow):
 
         tab.addTab(self.create_tab("Dashboard"), "Dashboard")
         tab.addTab(self.create_addresses_tab(), "Addresses")
-        tab.addTab(self.create_tab("Prefernces"), "Preferences")
+        tab.addTab(self.create_preferences_tab(), "Preferences")
         tab.addTab(self.create_tab("Settings"), "Settings")
 
         return tab
+
+    def create_preferences_tab(self):
+        """
+        WORKING HERE!
+        """
+        widget = QWidget()
+        layout = QVBoxLayout()
+
+        self.read_keywords()
+
+    def read_keywords(self):
+        with open("keywords.json", "r") as f:
+            self.tracked_keywords = json.load(f)
+            print(self.tracked_keywords)
 
     def create_addresses_tab(self):
         widget = QWidget()

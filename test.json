@@ -1,31 +1,79 @@
-{
-    "partId": "1",
-    "mimeType": "text/plain",
-    "filename": "Test1.txt",
-    "headers": [
-        {
-            "name": "Content-Type",
-            "value": "text/plain; charset=\"US-ASCII\"; name=\"Test1.txt\""
+[
+    {
+        "partId": "0",
+        "mimeType": "multipart/alternative",
+        "filename": "",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "multipart/alternative; boundary=\"00000000000070bb54064a64066c\""
+            }
+        ],
+        "body": {
+            "size": 0
         },
-        {
-            "name": "Content-Disposition",
-            "value": "attachment; filename=\"Test1.txt\""
-        },
-        {
-            "name": "Content-Transfer-Encoding",
-            "value": "base64"
-        },
-        {
-            "name": "Content-ID",
-            "value": "<f_mlb392ma3>"
-        },
-        {
-            "name": "X-Attachment-Id",
-            "value": "f_mlb392ma3"
+        "parts": [
+            {
+                "partId": "0.0",
+                "mimeType": "text/plain",
+                "filename": "",
+                "headers": [
+                    {
+                        "name": "Content-Type",
+                        "value": "text/plain; charset=\"UTF-8\""
+                    }
+                ],
+                "body": {
+                    "size": 6,
+                    "data": "VGVzdA0K"
+                }
+            },
+            {
+                "partId": "0.1",
+                "mimeType": "text/html",
+                "filename": "",
+                "headers": [
+                    {
+                        "name": "Content-Type",
+                        "value": "text/html; charset=\"UTF-8\""
+                    }
+                ],
+                "body": {
+                    "size": 27,
+                    "data": "PGRpdiBkaXI9Imx0ciI-VGVzdDwvZGl2Pg0K"
+                }
+            }
+        ]
+    },
+    {
+        "partId": "1",
+        "mimeType": "text/plain",
+        "filename": "test.txt",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "text/plain; charset=\"US-ASCII\"; name=\"test.txt\""
+            },
+            {
+                "name": "Content-Disposition",
+                "value": "attachment; filename=\"test.txt\""
+            },
+            {
+                "name": "Content-Transfer-Encoding",
+                "value": "base64"
+            },
+            {
+                "name": "Content-ID",
+                "value": "<f_mlf7b7r50>"
+            },
+            {
+                "name": "X-Attachment-Id",
+                "value": "f_mlf7b7r50"
+            }
+        ],
+        "body": {
+            "attachmentId": "ANGjdJ-sk9cc8kKNzyXcheZm922K2mhVadWKAxk_ThGreiBNk7z4jsEmS6BZG-e_Sr0hSp8xspPWB4O1upx62KS2jcjZz-0UeG_ugi9ScEUBbKS9FwJE9s-ws-Pl26eWHRdnk5nk-wTY_m2W_UD2pDgJV5-ahQleppvErLwu7Q-4xL-VLgZgPnIP7I84IayVPLQTTBLwmb9gbT8PMMkTFeOiJ5EXt5TN2mTWhGoZCwlgU-LT-xtQCkWtrdhdUGdhk_5cy7gx7gF-glSAe1r-_6VAe5xrluG99lZjreJHoAs3mCIoGGTihbQoGUlGU_Md93PQyg4eetdB9_amccATibEhRCXVlTswCowxoRfESvXX817VwkD4jkMTUAoxVwe1pvbKVvKaZxGqWT1H3Orj",
+            "size": 5
         }
-    ],
-    "body": {
-        "attachmentId": "ANGjdJ-WZUWwwrTbELmBNYU22xPjIsg1PVjOXImwdP-BP0ytt-YDxP5fIQ3N3P5jzRMXFWVf3ctmj78bpcTH3mkAAJdmiwX_rNsApQTth5Gok2QHmfRhaiSheoWRtkb9J6Bkmeo1GahciOq0yy-lJepKvNrl_PI7JeF_HO9mnusoTv7afxDrDhL0fHTC4i_QbvaHiUbFSTy6tS1R5K1BSqlCvM9AhuiDEul9q6al7wvu8Cdh9QEpF97o1qlnT-XsM7Z1aGYWJIEgt85s6Pbje0UH0s33RJjaEMdbTixIhsd7DLeDUFx2F13VCmaMxIq4fsFuNvQTR-QS9SF7bC_RmCHPPTqb96rtsCtNy2EotzW9fwWBBbiRDjKcKIe3Zuewt3V1IhMb8esfXFwjQhSR",
-        "size": 3
     }
-}
+]

@@ -88,10 +88,25 @@ def read_emails():
 
             if "parts" in msg_data["payload"]:
                 for part in msg_data["payload"]["parts"]:
+                    with open("test.json", "w") as f:
+                        json.dump(msg_data["payload"]["parts"], f, indent=4)
                     if part["mimeType"] == "text/plain":
-                        with open("test.json", "w") as f:
-                            json.dump(part, f, indent=4)
-                        message_content = decode_base64url(part["body"]["data"])
+                        if "filename" in part and ".txt" in part["filename"]:
+                            attachment = {
+                                "filename": part["filename"],
+                                "data": service.users()
+                                .messages()
+                                .attachments()
+                                .get(
+                                    userId="me",
+                                    messageId=message["id"],
+                                    id=part["body"]["attachmentId"],
+                                )
+                                .execute(),
+                            }
+                            attachments.append(attachment)
+                        else:
+                            message_content = decode_base64url(part["body"]["data"])
                     if part["mimeType"] == "multipart/alternative":
                         another_parts = part["parts"]
                         for another_part in another_parts:
