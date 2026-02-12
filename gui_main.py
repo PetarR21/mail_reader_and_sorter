@@ -14,11 +14,11 @@ from PyQt5.QtWidgets import (
     QTableWidgetItem,
     QHeaderView,
     QAbstractItemView,
+    QComboBox,
 )
 from PyQt5.QtCore import Qt, QTimer
 from PyQt5.QtGui import QCursor
 import json
-import os
 
 
 class MailSorterApp(QMainWindow):
@@ -36,6 +36,10 @@ class MailSorterApp(QMainWindow):
         central_widget = QWidget()
         self.setCentralWidget(central_widget)
         layout = QVBoxLayout()
+
+        # Read required files
+        self.read_addresses()
+        self.read_keywords()
 
         # Create navigation tabs
         layout.addWidget(self.create_navigation_tabs())
@@ -87,7 +91,7 @@ class MailSorterApp(QMainWindow):
         self.title_style = """
             font-size: 18px;
             font-weight: bold;
-            color:#707070;
+            color:#505050;
             margin-bottom: 10px;
             margin-top: 10px;
         """
@@ -101,12 +105,16 @@ class MailSorterApp(QMainWindow):
                 border-radius: 4px;
                 font-weight: bold;
                 font-size: 14px;
+                outline: none;
             }
             QPushButton:hover {
                 background-color: #0056b3;
             }
             QPushButton:pressed {
                 background-color: #003d82;
+            }
+            QPushButton:focus {
+                outline: none;
             }
         """
         self.delete_button_style = """
@@ -134,10 +142,9 @@ class MailSorterApp(QMainWindow):
             }
             QTableWidget::item {
                 color: #303030;
-                
             }
             QHeaderView::section {
-                background-color: #A3A3A3;
+                background-color: #838383;
                 color: white;
                 padding: 6px;
                 border: none;
@@ -179,25 +186,86 @@ class MailSorterApp(QMainWindow):
         return tab
 
     def create_preferences_tab(self):
-        """
-        WORKING HERE!
-        """
+
         widget = QWidget()
         layout = QVBoxLayout()
 
-        self.read_keywords()
+        title = QLabel("Add new keyword")
+        title.setStyleSheet(self.title_style)
+
+        self.email_dropdown = QComboBox()
+        self.populate_email_dropdown()
+        self.email_dropdown.setCurrentIndex(-1)
+
+        input_layout = QHBoxLayout()
+        self.keyword_input = QLineEdit()
+        self.keyword_input.setPlaceholderText("Enter new keyword")
+        self.keyword_input.setStyleSheet(self.input_style)
+        self.keyword_input.setCursor(QCursor(Qt.IBeamCursor))
+        self.add_keyword_button = QPushButton("Add")
+        self.add_keyword_button.clicked.connect(self.on_add_keyword_button_clicked)
+        self.add_keyword_button.setStyleSheet(self.add_button_style)
+        self.add_keyword_button.setCursor(QCursor(Qt.PointingHandCursor))
+        input_layout.addWidget(self.keyword_input)
+        input_layout.addWidget(self.add_keyword_button)
+
+        ## Message layout
+        message_layout = QVBoxLayout()
+        self.keywords_message_label = QLabel()
+        self.keywords_message_label.setMinimumHeight(45)
+        message_layout.addWidget(self.keywords_message_label)
+
+        layout.addWidget(title)
+        layout.addWidget(self.email_dropdown)
+        layout.addLayout(input_layout)
+        layout.addLayout(message_layout)
+        layout.addStretch(stretch=1)
+        widget.setLayout(layout)
+
+        return widget
+
+    def show_keywords_message(self, text, message_type=""):
+        self.keywords_message_label.setStyleSheet(self.message_styles[message_type])
+
+        self.keywords_message_label.setText(text)
+
+        self.keywords_message_label = QTimer()
+        self.keywords_message_label.setSingleShot(True)
+        self.keywords_message_label.timeout.connect(self.clear_keywords_message)
+
+    def clear_keywords_message(self):
+        self.keywords_message_label.setText("")  # Empty the label
+        self.keywords_message_label.setStyleSheet("")
+
+    def on_add_keyword_button_clicked(self):
+        print("Add button cliked")
+        self.show_keywords_message("Hello", "success")
+
+    def populate_email_dropdown(self):
+        for email in self.tracked_addresses.keys():
+            self.email_dropdown.addItem(email)
 
     def read_keywords(self):
-        with open("keywords.json", "r") as f:
-            self.tracked_keywords = json.load(f)
-            print(self.tracked_keywords)
+        try:
+            with open("keywords.json", "r") as f:
+                self.tracked_keywords = json.load(f)
+        except FileNotFoundError:
+            self.show_message("Error: The file 'keywords.json' was not found.", "error")
+        except json.JSONDecodeError:
+            self.show_message(
+                "Error: Failed to decode JSON from the file. Check for malformed JSON syntax.",
+                "error",
+            )
+
+    def save_keywords(self):
+        with open("keywords.json", "w") as f:
+            json.dump(self.tracked_keywords, f)
 
     def create_addresses_tab(self):
         widget = QWidget()
         layout = QVBoxLayout()
 
         # Input Selection Layout
-        self.read_addresses()
 
         input_selection_layout = QVBoxLayout()
         title = QLabel("Add New Address")
@@ -438,7 +506,6 @@ class MailSorterApp(QMainWindow):
     def clear_message(self):
         self.message_label.setText("")  # Empty the label
         self.message_label.setStyleSheet("")
-        # self.message_label.setVisible(False)
 
     def create_tab(self, label_text):
         widget = QWidget()
