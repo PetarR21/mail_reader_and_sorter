@@ -196,6 +196,7 @@ class MailSorterApp(QMainWindow):
         self.email_dropdown = QComboBox()
         self.populate_email_dropdown()
         self.email_dropdown.setCurrentIndex(-1)
+        self.email_dropdown.currentIndexChanged.connect(self.populate_keywords_table)
 
         input_layout = QHBoxLayout()
         self.keyword_input = QLineEdit()
@@ -215,31 +216,83 @@ class MailSorterApp(QMainWindow):
         self.keywords_message_label.setMinimumHeight(45)
         message_layout.addWidget(self.keywords_message_label)
 
+        ## Keywords table
+        self.keywords_table = QTableWidget()
+        self.keywords_table.setMinimumHeight(300)  # Compact
+        self.keywords_table.setMaximumHeight(400)
+        self.keywords_table.setColumnCount(1)
+        self.keywords_table.setHorizontalHeaderLabels(["Tracked Keywords"])
+        header = self.keywords_table.horizontalHeader()
+        header.setStyleSheet("QHeaderView::section { border: 1px solid #D3D3D3; }")
+        self.keywords_table.verticalHeader().setVisible(False)
+        self.keywords_table.setStyleSheet(self.table_style)
+        self.keywords_table.setAlternatingRowColors(True)
+        self.keywords_table.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
+        self.keywords_table.setSortingEnabled(True)
+        self.keywords_table.setCursor(QCursor(Qt.PointingHandCursor))
+
+        # self.populate_keywords_table()
+
         layout.addWidget(title)
         layout.addWidget(self.email_dropdown)
         layout.addLayout(input_layout)
         layout.addLayout(message_layout)
+        layout.addWidget(self.keywords_table)
         layout.addStretch(stretch=1)
         widget.setLayout(layout)
 
         return widget
+
+    def populate_keywords_table(self):
+        self.keywords_table
+        if self.email_dropdown.currentText() == "":
+            return
+
+        if self.email_dropdown.currentText() not in self.tracked_keywords.keys():
+            return
+
+        keywords = self.tracked_keywords[self.email_dropdown.currentText()]
+        for keyword in keywords:
+            self.keywords_table.insertRow(self.keywords_table.rowCount())
+            item = QTableWidgetItem(keyword)
+            item.setTextAlignment(Qt.AlignCenter)
+            self.keywords_table.setItem(self.keywords_table.rowCount() - 1, 0, item)
 
     def show_keywords_message(self, text, message_type=""):
         self.keywords_message_label.setStyleSheet(self.message_styles[message_type])
 
         self.keywords_message_label.setText(text)
 
-        self.keywords_message_label = QTimer()
-        self.keywords_message_label.setSingleShot(True)
-        self.keywords_message_label.timeout.connect(self.clear_keywords_message)
+        self.keywords_message_timer = QTimer()
+        self.keywords_message_timer.setSingleShot(True)
+        self.keywords_message_timer.timeout.connect(self.clear_keywords_message)
+        self.keywords_message_timer.start(5000)
 
     def clear_keywords_message(self):
         self.keywords_message_label.setText("")  # Empty the label
         self.keywords_message_label.setStyleSheet("")
 
     def on_add_keyword_button_clicked(self):
-        print("Add button cliked")
-        self.show_keywords_message("Hello", "success")
+        new_keyword = self.keyword_input.text().lower()
+        selected_email = self.email_dropdown.currentText()
+
+        if self.email_dropdown.currentIndex() == -1:
+            self.show_keywords_message("No email selected", "error")
+            return
+        if new_keyword == "":
+            return
+
+        if selected_email not in self.tracked_keywords.keys():
+            self.tracked_keywords[selected_email] = []
+            self.save_keywords()
+
+        if new_keyword not in self.tracked_keywords[selected_email]:
+            self.tracked_keywords[selected_email].append(new_keyword)
+            self.show_keywords_message("Successfully added new keyword.", "success")
+            self.save_keywords()
+            self.keyword_input.clear()
+        else:
+            self.show_keywords_message("Keyword already exists", "error")
 
     def populate_email_dropdown(self):
         for email in self.tracked_addresses.keys():
