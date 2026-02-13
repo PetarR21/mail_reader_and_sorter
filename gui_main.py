@@ -231,20 +231,40 @@ class MailSorterApp(QMainWindow):
         self.keywords_table.setSortingEnabled(True)
         self.keywords_table.setCursor(QCursor(Qt.PointingHandCursor))
 
-        # self.populate_keywords_table()
+        # Delete keyword button
+        self.delete_keyword_button = QPushButton("Delete Selected")
+        self.delete_keyword_button.clicked.connect(
+            self.on_delete_keyword_button_clicked
+        )
+        self.delete_keyword_button.setStyleSheet(self.delete_button_style)
+        self.delete_keyword_button.setCursor(QCursor(Qt.PointingHandCursor))
 
         layout.addWidget(title)
         layout.addWidget(self.email_dropdown)
         layout.addLayout(input_layout)
         layout.addLayout(message_layout)
         layout.addWidget(self.keywords_table)
+        layout.addWidget(self.delete_keyword_button)
         layout.addStretch(stretch=1)
         widget.setLayout(layout)
 
         return widget
 
+    def on_delete_keyword_button_clicked(self):
+        selection = self.keywords_table.selectionModel().selectedRows()
+        for index in selection:
+            row_number = index.row()
+            keyword_to_delete = self.keywords_table.item(row_number, 0).text()
+            current_email = self.email_dropdown.currentText()
+            self.tracked_keywords[current_email].remove(keyword_to_delete)
+            self.save_keywords()
+            self.keywords_table.removeRow(row_number)
+            self.show_message(f"Deleted {keyword_to_delete}", "success")
+
     def populate_keywords_table(self):
-        self.keywords_table
+        self.keywords_table.clearContents()
+        self.keywords_table.setRowCount(0)
+
         if self.email_dropdown.currentText() == "":
             return
 
@@ -253,10 +273,7 @@ class MailSorterApp(QMainWindow):
 
         keywords = self.tracked_keywords[self.email_dropdown.currentText()]
         for keyword in keywords:
-            self.keywords_table.insertRow(self.keywords_table.rowCount())
-            item = QTableWidgetItem(keyword)
-            item.setTextAlignment(Qt.AlignCenter)
-            self.keywords_table.setItem(self.keywords_table.rowCount() - 1, 0, item)
+            self.add_keyword(keyword)
 
     def show_keywords_message(self, text, message_type=""):
         self.keywords_message_label.setStyleSheet(self.message_styles[message_type])
@@ -271,6 +288,12 @@ class MailSorterApp(QMainWindow):
     def clear_keywords_message(self):
         self.keywords_message_label.setText("")  # Empty the label
         self.keywords_message_label.setStyleSheet("")
+
+    def add_keyword(self, keyword):
+        self.keywords_table.insertRow(self.keywords_table.rowCount())
+        item = QTableWidgetItem(keyword)
+        item.setTextAlignment(Qt.AlignCenter)
+        self.keywords_table.setItem(self.keywords_table.rowCount() - 1, 0, item)
 
     def on_add_keyword_button_clicked(self):
         new_keyword = self.keyword_input.text().lower()
@@ -291,10 +314,13 @@ class MailSorterApp(QMainWindow):
             self.show_keywords_message("Successfully added new keyword.", "success")
             self.save_keywords()
             self.keyword_input.clear()
+            self.add_keyword(new_keyword)
         else:
             self.show_keywords_message("Keyword already exists", "error")
 
     def populate_email_dropdown(self):
+        self.email_dropdown.clear()
+        self.email_dropdown.setCurrentIndex(-1)
         for email in self.tracked_addresses.keys():
             self.email_dropdown.addItem(email)
 
@@ -422,6 +448,7 @@ class MailSorterApp(QMainWindow):
             self.save_addresses()
             self.addresses_table.removeRow(row_number)
             self.show_message(f"Deleted {email_to_delete}", "success")
+            self.populate_email_dropdown()
 
     def read_addresses(self):
         try:
@@ -483,6 +510,7 @@ class MailSorterApp(QMainWindow):
         )
 
         self.show_message(f"Added {email}", "success")
+        self.populate_email_dropdown()
 
         self.email_input.clear()
         self.folder_input.clear()
