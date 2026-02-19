@@ -2,6 +2,7 @@ from read_emails import read_emails
 import os
 import base64
 import json
+from datetime import datetime
 
 desktop_path = os.path.join(os.path.join(os.environ["USERPROFILE"]), "Desktop")
 
@@ -70,7 +71,6 @@ def check_keywords(attachment_name, email_address):
 
 
 def process_mails():
-
     if not os.path.isfile("addresses.json"):
         with open("addresses.json", "w") as f:
             json.dump({}, f, indent=4)
@@ -85,6 +85,7 @@ def process_mails():
 
     emails = fetch_new_emails()
 
+    emails_processed_count = 0
     for email in emails:
         email_address = extract_email(email["from"])
         if email_address in addresses_to_track:
@@ -104,3 +105,13 @@ def process_mails():
                         attachment["data"],
                         os.path.join(path_with_subfolder, attachment["filename"]),
                     )
+                emails_processed_count += 1
+
+    current_datetime = datetime.now()
+    formatted_datetime = current_datetime.strftime("%Y-%m-%d %H:%M:%S")
+
+    with open("stats.json", "w") as f:
+        stats = {}
+        stats["last_run"] = formatted_datetime
+        stats["emails_processed"] = emails_processed_count
+        json.dump(stats, f, indent=4)

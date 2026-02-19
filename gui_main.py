@@ -16,15 +16,39 @@ from PyQt5.QtWidgets import (
     QAbstractItemView,
     QComboBox,
     QFrame,
+    QListWidget,
+    QListWidgetItem,
 )
-from PyQt5.QtCore import Qt, QTimer, QEvent
+from PyQt5.QtCore import Qt, QTimer, QEvent, QThread, QObject, pyqtSignal
 from PyQt5.QtGui import QCursor
 import json
+from app import process_mails
+import os
+from collections import deque
+from datetime import datetime
+
+
+class MailSortWorker(QObject):
+    finished = pyqtSignal()
+    error = pyqtSignal(str)
+
+    def run(self):
+        try:
+            process_mails()
+            self.finished.emit()
+        except Exception as e:
+            self.error.emit(str(e))
 
 
 class MailSorterApp(QMainWindow):
 
     def __init__(self):
+        self.is_sorting_running = False
+        self.sort_thread = None
+        self.sort_worker = None
+
+        self.read_run_history()
+
         super().__init__()
 
         # Set window title and size
@@ -64,8 +88,62 @@ class MailSorterApp(QMainWindow):
         geometry.moveCenter(center)
         self.move(geometry.topLeft())
 
+    def read_run_history(self):
+        self.ensure_run_history_file()
+
+        try:
+            with open("run_history.json", "r") as f:
+                data = json.load(f)
+                self.run_history = deque(data if isinstance(data, list) else [])
+        except (json.JSONDecodeError, FileNotFoundError):
+            self.run_history = deque([])
+            with open("run_history.json", "w") as f:
+                json.dump(list(self.run_history), f, indent=4)
+
+    def ensure_run_history_file(self):
+        if not os.path.isfile("run_history.json"):
+            with open("run_history.json", "w") as f:
+                json.dump([], f, indent=4)
+            return
+
+        try:
+            with open("run_history.json", "r") as f:
+                data = json.load(f)
+                if not isinstance(data, list):
+                    raise ValueError("run_history.json must contain a JSON list")
+        except (json.JSONDecodeError, ValueError, FileNotFoundError):
+            with open("run_history.json", "w") as f:
+                json.dump([], f, indent=4)
+
     def is_expanded_window(self):
         return self.isFullScreen() or self.isMaximized()
+
+    def refresh_activity_list(self):
+        self.activity_list.clear()
+
+        for entry in self.run_history:
+            self.activity_list.addItem(QListWidgetItem(entry))
+
+    def append_run_history_entry(self, status, processed_count=0, errorMessage=""):
+        self.read_run_history()
+
+        current_datetime = datetime.now()
+        formatted_datetime = current_datetime.strftime("%Y-%m-%d %H:%M:%S")
+        message = ""
+        if status == "success":
+            message = (
+                f"{formatted_datetime} - ✅ Success — Processed: {processed_count}"
+            )
+        else:
+            message = f"{formatted_datetime} — ❌ Failed — {errorMessage}"
+
+        self.run_history.appendleft(message)
+
+        if len(self.run_history) > 10:
+            self.run_history.pop()
+
+        with open("run_history.json", "w") as f:
+            json.dump(list(self.run_history), f, indent=4)
 
     def update_table_heights(self):
         if self.is_expanded_window():
@@ -439,17 +517,22 @@ class MailSorterApp(QMainWindow):
 
         activity_title = QLabel("Recent Activity")
         activity_title.setStyleSheet(self.title_style)
-        activity_text = QLabel(
+        self.activity_text = QLabel(
             "• No recent activity yet\n" "• Last action: --\n" "• Status: waiting"
         )
-        activity_text.setObjectName("activityText")
-        activity_text.setAlignment(Qt.AlignTop | Qt.AlignLeft)
+        self.activity_text.setObjectName("activityText")
+        self.activity_text.setAlignment(Qt.AlignTop | Qt.AlignLeft)
+
+        self.activity_list = QListWidget()
 
         activity_layout.addWidget(activity_title)
-        activity_layout.addWidget(activity_text)
+        activity_layout.addWidget(self.activity_text)
+        activity_layout.addWidget(self.activity_list)
         activity_layout.addStretch(1)
         activity_card.setLayout(activity_layout)
         activity_card.setMinimumHeight(260)
+
+        self.refresh_activity_list()
 
         # Quick actions (Step 5)
         quick_actions_card = QWidget()
@@ -482,7 +565,53 @@ class MailSorterApp(QMainWindow):
         return widget
 
     def on_run_sorting_clicked(self):
-        print("Hello")
+        if self.is_sorting_running:
+            return
+
+        self.is_sorting_running = True
+        self.run_sorting_button.setEnabled(False)
+        self.refresh_dashboard_button.setEnabled(False)
+        self.activity_text.setText("⏳ Sorting in progress...")
+
+        self.sort_thread = QThread()
+        self.sort_worker = MailSortWorker()
+
+        self.sort_worker.moveToThread(self.sort_thread)
+
+        self.sort_thread.started.connect(self.sort_worker.run)
+
+        self.sort_worker.finished.connect(self.on_sorting_finished)
+        self.sort_worker.error.connect(self.on_sorting_failed)
+
+        self.sort_worker.finished.connect(self.sort_thread.quit)
+        self.sort_worker.error.connect(self.sort_thread.quit)
+
+        self.sort_thread.finished.connect(self.cleanup_sorting_thread)
+
+        self.sort_thread.start()
+
+    def on_sorting_finished(self):
+        processed = self.get_dashboard_metrics()[3]
+
+        self.is_sorting_running = False
+        self.run_sorting_button.setEnabled(True)
+        self.refresh_dashboard_button.setEnabled(True)
+        self.append_run_history_entry("success", processed)
+        self.activity_text.setText("✅ Sorting completed successfully")
+        self.refresh_activity_list()
+        self.refresh_dashboard_metrics()
+
+    def on_sorting_failed(self, message):
+        self.is_sorting_running = False
+        self.run_sorting_button.setEnabled(True)
+        self.refresh_dashboard_button.setEnabled(True)
+        self.append_run_history_entry("error", 0, message)
+        self.activity_text("❌ Sorting failed. Check recent activity for details.")
+        self.refresh_activity_list()
+
+    def cleanup_sorting_thread(self):
+        self.sort_worker = None
+        self.sort_thread = None
 
     def refresh_dashboard_metrics(self):
         metrics = self.get_dashboard_metrics()
@@ -500,6 +629,20 @@ class MailSorterApp(QMainWindow):
 
         last_run = "--"
         emails_processed = "0"
+
+        if os.path.isfile("stats.json"):
+            try:
+                with open("stats.json", "r") as f:
+                    stats = json.load(f)
+                    if isinstance(stats, dict):
+                        if "last_run" in stats:
+                            last_run = stats["last_run"]
+                        if "emails_processed" in stats:
+                            emails_processed = stats["emails_processed"]
+            except json.JSONDecodeError:
+                with open("stats.json", "w") as f:
+                    json.dump({}, f, indent=4)
+
         return [
             number_of_tracked_addresses,
             number_of_tracked_keywords,
