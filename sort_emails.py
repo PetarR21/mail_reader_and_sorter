@@ -3,8 +3,65 @@ import os
 import base64
 import json
 from datetime import datetime
+from app_paths import get_data_file
 
 desktop_path = os.path.join(os.path.join(os.environ["USERPROFILE"]), "Desktop")
+
+
+def _settings_file():
+    return get_data_file("settings.json")
+
+
+def _keywords_file():
+    return get_data_file("keywords.json")
+
+
+def _addresses_file():
+    return get_data_file("addresses.json")
+
+
+def _stats_file():
+    return get_data_file("stats.json")
+
+
+def is_valid_folder_name(folder_name):
+    if not isinstance(folder_name, str) or not folder_name.strip():
+        return False
+
+    invalid_chars = ["\\", "/", ":", "*", "?", '"', "<", ">", "|"]
+    for char in invalid_chars:
+        if char in folder_name:
+            return False
+
+    return True
+
+
+def load_storage_settings():
+    default_base_path = desktop_path
+    default_folder_name = "Main"
+
+    if not os.path.isfile(_settings_file()):
+        return default_base_path, default_folder_name
+
+    try:
+        with open(_settings_file(), "r") as f:
+            settings = json.load(f)
+
+        if not isinstance(settings, dict):
+            return default_base_path, default_folder_name
+
+        root_base_path = settings.get("root_base_path", default_base_path)
+        root_folder_name = settings.get("root_folder_name", default_folder_name)
+
+        if not isinstance(root_base_path, str) or not root_base_path.strip():
+            root_base_path = default_base_path
+
+        if not is_valid_folder_name(root_folder_name):
+            root_folder_name = default_folder_name
+
+        return root_base_path.strip(), root_folder_name.strip()
+    except (json.JSONDecodeError, OSError, ValueError):
+        return default_base_path, default_folder_name
 
 
 def extract_email(from_string):
@@ -17,11 +74,11 @@ def extract_email(from_string):
 
 
 def load_keywords(address):
-    if not os.path.isfile("keywords.json"):
-        with open("keywords.json", "w") as f:
+    if not os.path.isfile(_keywords_file()):
+        with open(_keywords_file(), "w") as f:
             json.dump({}, f, indent=4)
 
-    with open("keywords.json") as f:
+    with open(_keywords_file()) as f:
         keywords = json.load(f)
 
     if keywords:
@@ -70,22 +127,37 @@ def check_keywords(attachment_name, email_address):
     return "Default"
 
 
+def get_current_datetime():
+    current_datetime = datetime.now()
+    formatted_datetime = current_datetime.strftime("%Y-%m-%d %H:%M:%S")
+
+    return formatted_datetime
+
+
 def process_mails():
-    if not os.path.isfile("addresses.json"):
-        with open("addresses.json", "w") as f:
+    if not os.path.isfile(_addresses_file()):
+        with open(_addresses_file(), "w") as f:
             json.dump({}, f, indent=4)
 
-    with open("addresses.json", "r") as f:
+    with open(_addresses_file(), "r") as f:
         addresses_to_track = json.load(f)
 
-    # Create Mails folder if it doesn't exist
-    mails_path = os.path.join(desktop_path, "Mails")
-    if not os.path.exists(mails_path):
-        os.makedirs(mails_path)
+    root_base_path, root_folder_name = load_storage_settings()
+    mails_path = os.path.join(root_base_path, root_folder_name)
+
+    try:
+        os.makedirs(mails_path, exist_ok=True)
+    except OSError:
+        mails_path = os.path.join(desktop_path, "Main")
+        os.makedirs(mails_path, exist_ok=True)
 
     emails = fetch_new_emails()
 
+    events = []
+    processed_count = 0
+    failed_count = 0
     emails_processed_count = 0
+
     for email in emails:
         email_address = extract_email(email["from"])
         if email_address in addresses_to_track:
@@ -101,17 +173,36 @@ def process_mails():
                     if not os.path.exists(path_with_subfolder):
                         os.makedirs(path_with_subfolder)
 
-                    save_attachment_image(
-                        attachment["data"],
-                        os.path.join(path_with_subfolder, attachment["filename"]),
-                    )
+                    event = {}
+                    event["timestamp"] = get_current_datetime()
+                    event["from_email"] = email_address
+                    event["attachment_name"] = attachment["filename"]
+                    event["folder_path"] = str(path_with_subfolder)
+                    event["status"] = None
+                    try:
+                        save_attachment_image(
+                            attachment["data"],
+                            os.path.join(path_with_subfolder, attachment["filename"]),
+                        )
+                        processed_count += 1
+                        event["status"] = "saved"
+                        event["error"] = None
+                    except Exception as e:
+                        failed_count += 1
+                        event["status"] = "failed"
+                        event["error"] = str(e)
+                    events.append(event)
                 emails_processed_count += 1
 
-    current_datetime = datetime.now()
-    formatted_datetime = current_datetime.strftime("%Y-%m-%d %H:%M:%S")
-
-    with open("stats.json", "w") as f:
+    with open(_stats_file(), "w") as f:
         stats = {}
-        stats["last_run"] = formatted_datetime
+        stats["last_run"] = get_current_datetime()
         stats["emails_processed"] = emails_processed_count
         json.dump(stats, f, indent=4)
+
+    return {
+        "processed_count": processed_count,
+        "failed_count": failed_count,
+        "events": events,
+        "last_run": stats["last_run"],
+    }

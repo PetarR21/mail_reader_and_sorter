@@ -4,19 +4,20 @@ import json
 import base64
 import re
 import os
-
-HISTORY_FILE = "history_id.txt"
+from app_paths import get_data_file
 
 
 def load_history_id():
-    if os.path.exists(HISTORY_FILE):
-        with open(HISTORY_FILE, "r") as f:
+    history_file = get_data_file("history_id.txt")
+    if os.path.exists(history_file):
+        with open(history_file, "r") as f:
             return f.read().strip()
     return None
 
 
 def save_history_id(history_id):
-    with open(HISTORY_FILE, "w") as f:
+    history_file = get_data_file("history_id.txt")
+    with open(history_file, "w") as f:
         f.write(history_id)
 
 
@@ -88,8 +89,6 @@ def read_emails():
 
             if "parts" in msg_data["payload"]:
                 for part in msg_data["payload"]["parts"]:
-                    with open("test.json", "w") as f:
-                        json.dump(msg_data["payload"]["parts"], f, indent=4)
                     if part["mimeType"] == "text/plain":
                         if "filename" in part and ".txt" in part["filename"]:
                             attachment = {

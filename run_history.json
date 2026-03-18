@@ -1,12 +1,66 @@
 [
-    "2026-02-19 10:26:47 - \u2705 Success \u2014 Processed: 0",
-    "2026-02-19 10:26:38 - \u2705 Success \u2014 Processed: 0",
-    "2026-02-19 10:26:28 - \u2705 Success \u2014 Processed: 0",
-    "2026-02-19 10:26:22 - \u2705 Success \u2014 Processed: 0",
-    "2026-02-19 10:26:20 - \u2705 Success \u2014 Processed: 0",
-    "2026-02-19 10:26:17 - \u2705 Success \u2014 Processed: 0",
-    "2026-02-19 10:26:15 - \u2705 Success \u2014 Processed: 0",
-    "2026-02-19 10:26:13 - \u2705 Success \u2014 Processed: 0",
-    "2026-02-19 10:26:10 - \u2705 Success \u2014 Processed: 0",
-    "2026-02-19 10:26:07 - \u2705 Success \u2014 Processed: 0"
+    {
+        "timestamp": "2026-03-04 09:35:10",
+        "status": "saved",
+        "from_email": "petaretf97@gmail.com",
+        "attachment_name": "Energetika Po Predava\u010dima (8)_99c2c831-d899-4680-865e-e45b61c498ab.pdf",
+        "folder_path": "C:/Users/Petar/Documents\\Mejlovi\\Petar Rakocevic\\Energetika",
+        "error": null
+    },
+    {
+        "timestamp": "2026-03-04 09:27:08",
+        "status": "saved",
+        "from_email": "petaretf97@gmail.com",
+        "attachment_name": "UIZV_20260131_471839.pdf",
+        "folder_path": "C:\\Users\\Petar\\Desktop\\Mails\\Petar Rakocevic\\Default",
+        "error": null
+    },
+    {
+        "timestamp": "2026-02-20 16:01:46",
+        "status": "saved",
+        "from_email": "petaretf97@gmail.com",
+        "attachment_name": "Stru\u010dni rad - Ana R_5e794f0a-a243-4b73-946a-9435f3f69d43.doc",
+        "folder_path": "C:\\Users\\Petar\\Desktop\\Mails\\Petar Rakocevic\\Default",
+        "error": null
+    },
+    {
+        "timestamp": "2026-02-20 16:01:46",
+        "status": "saved",
+        "from_email": "petaretf97@gmail.com",
+        "attachment_name": "Elektronika po Odjeljenjima (8)_6cbdf7b1-2a70-4396-9d00-f008285796ae.pdf",
+        "folder_path": "C:\\Users\\Petar\\Desktop\\Mails\\Petar Rakocevic\\Elektronika",
+        "error": null
+    },
+    {
+        "timestamp": "2026-02-20 16:01:46",
+        "status": "saved",
+        "from_email": "petaretf97@gmail.com",
+        "attachment_name": "Energetika po Odjeljenjima (8)_ff2080c3-a0e7-4d7f-9fd5-6047894bdbaf.pdf",
+        "folder_path": "C:\\Users\\Petar\\Desktop\\Mails\\Petar Rakocevic\\Default",
+        "error": null
+    },
+    {
+        "timestamp": "2026-02-20 16:01:46",
+        "status": "saved",
+        "from_email": "petaretf97@gmail.com",
+        "attachment_name": "SPECIFIKACIJA MATERIJALA- BALKAN JUNIOR 2026_df274b6f-2e36-45e6-8e61-61e009056658.docx",
+        "folder_path": "C:\\Users\\Petar\\Desktop\\Mails\\Petar Rakocevic\\Specifikacija",
+        "error": null
+    },
+    {
+        "timestamp": "2026-02-20 16:01:12",
+        "status": "failed",
+        "from_email": "",
+        "attachment_name": "",
+        "folder_path": "",
+        "error": "HTTPSConnectionPool(host='oauth2.googleapis.com', port=443): Max retries exceeded with url: /token (Caused by NameResolutionError(\"HTTPSConnection(host='oauth2.googleapis.com', port=443): Failed to resolve 'oauth2.googleapis.com' ([Errno 11001] getaddrinfo failed)\"))"
+    },
+    {
+        "timestamp": "2026-02-20 14:43:24",
+        "status": "saved",
+        "from_email": "petaretf97@gmail.com",
+        "attachment_name": "UIZV_20260131_471839.pdf",
+        "folder_path": "C:\\Users\\Petar\\Desktop\\Mails\\Petar Rakocevic\\Default",
+        "error": null
+    }
 ]
